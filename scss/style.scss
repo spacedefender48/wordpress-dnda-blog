@@ -1,0 +1,23 @@
+/*
+Theme Name: DNDA blog
+Author: Plamen Kolarov
+Description: This is my personal project on WordPress
+Tags: wordpress, blog, project
+*/
+// System section
+@import 'bootstrap.min';
+@import 'reset';
+@import 'fonts';
+
+// Plugins section
+
+
+// Main section
+@import 'header';
+
+
+// General Settings
+.container-fluid.wrap {
+    max-width: 1170px;
+    margin: 0 auto;
+}
