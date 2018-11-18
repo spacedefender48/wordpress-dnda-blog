@@ -1,0 +1,6 @@
+@mixin transition($sec) {
+    -webkit-transition: $sec;
+       -moz-transition: $sec;
+        -ms-transition: $sec;
+            transition: $sec;
+}

@@ -1,8 +1,33 @@
 header {
-    background: red;
     min-height: 500px;
     padding: 60px 0;
+    position: relative;
+    overflow: hidden;
 
+
+    // Canvas button
+    .canvas-btn {
+        margin: 0 auto;
+        width: 25px;
+        height: 25px;
+        margin-top: 22px;
+        cursor: pointer;
+
+        div {
+            width: 20px;
+            height: 2px;
+            background: #fff;
+            margin-bottom: 5px;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+
+    }
+
+
+    //  Logo
     .logo-wrap {
         width: 60px;
         text-align: center;
@@ -15,26 +40,53 @@ header {
         }
     }
 
+
+    // Main post in header
+
+    .main-post {
+        position: static;
+    }
+
     .post-wrap {
         padding-top: 90px;
 
+        .wp-post-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: block;
+            width: auto;
+            height: 100%;
+            z-index: -1;
+
+            @media only screen and (min-width: 1030px) {
+                width: 100%;
+                height: auto;
+            }
+        }
+
         .post-wrap--title {
-            font-size: 3.4375em;
+            font-size: 3.3125em;
             font-family: 'lorabold';
             color: #fff;
             text-align: center;
             text-transform: uppercase;
             font-style: italic;
-            line-height: 27px;
+            line-height: 57px;
             margin-bottom: 30px;
+
+            a {
+                text-decoration: none;
+                color: #fff;
+            }
         }
 
         .post-wrap--excerpt {
-            font-size: 1em;
+            font-size: 0.9375em;
             font-family: 'montserratlight';
             color: #fff;
             text-align: center;
-            max-width: 994px;
+            max-width: 940px;
             margin: 0 auto 25px;
             font-style: italic;
             line-height: 23px;
@@ -54,6 +106,29 @@ header {
                 margin: 0 15px;
             }
 
+        }
+
+        .post-wrap--read-wrap {
+            text-align: center;
+            margin-bottom: 123px;
+
+            .post-wrap--read-link {
+                display: inline-block;
+                padding: 14px 60px;
+                border: 1px solid #fff;
+                font-size: 1.0625em;
+                font-family: 'montserratregular';
+                color: #fff;
+                font-style: italic;
+                text-decoration: none; 
+                text-transform: uppercase; 
+                @include transition(0.2s);
+
+
+                &:hover {
+                    text-shadow: 0 0 6px rgba(255, 255, 255, 0.75);
+                }
+            }
         }
     }
 }

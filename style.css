@@ -5700,9 +5700,23 @@ table {
   font-weight: normal;
   font-style: normal; }
 header {
-  background: red;
   min-height: 500px;
-  padding: 60px 0; }
+  padding: 60px 0;
+  position: relative;
+  overflow: hidden; }
+  header .canvas-btn {
+    margin: 0 auto;
+    width: 25px;
+    height: 25px;
+    margin-top: 22px;
+    cursor: pointer; }
+    header .canvas-btn div {
+      width: 20px;
+      height: 2px;
+      background: #fff;
+      margin-bottom: 5px; }
+      header .canvas-btn div:last-child {
+        margin-bottom: 0; }
   header .logo-wrap {
     width: 60px;
     text-align: center;
@@ -5711,23 +5725,40 @@ header {
       display: block;
       width: 100%;
       height: auto; }
+  header .main-post {
+    position: static; }
   header .post-wrap {
     padding-top: 90px; }
+    header .post-wrap .wp-post-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: block;
+      width: auto;
+      height: 100%;
+      z-index: -1; }
+      @media only screen and (min-width: 1030px) {
+        header .post-wrap .wp-post-image {
+          width: 100%;
+          height: auto; } }
     header .post-wrap .post-wrap--title {
-      font-size: 3.4375em;
+      font-size: 3.3125em;
       font-family: 'lorabold';
       color: #fff;
       text-align: center;
       text-transform: uppercase;
       font-style: italic;
-      line-height: 27px;
+      line-height: 57px;
       margin-bottom: 30px; }
+      header .post-wrap .post-wrap--title a {
+        text-decoration: none;
+        color: #fff; }
     header .post-wrap .post-wrap--excerpt {
-      font-size: 1em;
+      font-size: 0.9375em;
       font-family: 'montserratlight';
       color: #fff;
       text-align: center;
-      max-width: 994px;
+      max-width: 940px;
       margin: 0 auto 25px;
       font-style: italic;
       line-height: 23px; }
@@ -5742,6 +5773,148 @@ header {
       margin-bottom: 60px; }
       header .post-wrap .post-wrap--meta span {
         margin: 0 15px; }
+    header .post-wrap .post-wrap--read-wrap {
+      text-align: center;
+      margin-bottom: 123px; }
+      header .post-wrap .post-wrap--read-wrap .post-wrap--read-link {
+        display: inline-block;
+        padding: 14px 60px;
+        border: 1px solid #fff;
+        font-size: 1.0625em;
+        font-family: 'montserratregular';
+        color: #fff;
+        font-style: italic;
+        text-decoration: none;
+        text-transform: uppercase;
+        -webkit-transition: 0.2s;
+        -moz-transition: 0.2s;
+        -ms-transition: 0.2s;
+        transition: 0.2s; }
+        header .post-wrap .post-wrap--read-wrap .post-wrap--read-link:hover {
+          text-shadow: 0 0 6px rgba(255, 255, 255, 0.75); }
+
+#content .posts-wrap .container-fluid .row .post-image {
+  height: 500px;
+  padding-left: 0;
+  padding-right: 0;
+  overflow: hidden; }
+  #content .posts-wrap .container-fluid .row .post-image .post-image--link {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    text-decoration: none; }
+    #content .posts-wrap .container-fluid .row .post-image .post-image--link img {
+      display: block;
+      width: auto;
+      height: 100%;
+      transform: scale(1, 1);
+      -webkit-transition: 0.5s;
+      -moz-transition: 0.5s;
+      -ms-transition: 0.5s;
+      transition: 0.5s; }
+    #content .posts-wrap .container-fluid .row .post-image .post-image--link:hover img {
+      transform: scale(1.1, 1.1); }
+#content .posts-wrap .container-fluid .row .post-details-wrap {
+  height: 500px;
+  padding: 120px 0;
+  background: #1c2023; }
+  #content .posts-wrap .container-fluid .row .post-details-wrap .post-details-wrap--title {
+    font-size: 1.625em;
+    font-family: 'loraregular';
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+    max-width: 490px;
+    margin: 0 auto 20px;
+    font-style: italic; }
+    #content .posts-wrap .container-fluid .row .post-details-wrap .post-details-wrap--title a {
+      text-decoration: none;
+      color: #fff; }
+  #content .posts-wrap .container-fluid .row .post-details-wrap .post-details-wrap--excerpt {
+    font-size: 0.9375em;
+    font-family: 'montserratregular';
+    color: #fff;
+    text-align: center;
+    max-width: 490px;
+    margin: 0 auto 25px;
+    font-style: italic;
+    line-height: 23px; }
+  #content .posts-wrap .container-fluid .row .post-details-wrap .post-details-wrap--meta {
+    font-size: 10px;
+    font-family: 'montserratregular';
+    color: #fff;
+    text-align: center;
+    font-style: italic;
+    line-height: 23px;
+    text-transform: uppercase;
+    margin-bottom: 60px; }
+    #content .posts-wrap .container-fluid .row .post-details-wrap .post-details-wrap--meta span {
+      margin: 0 15px; }
+  #content .posts-wrap .container-fluid .row .post-details-wrap .post-details-wrap--read-wrap {
+    text-align: center; }
+    #content .posts-wrap .container-fluid .row .post-details-wrap .post-details-wrap--read-wrap .post-details-wrap--read-link {
+      display: inline-block;
+      padding: 14px 60px;
+      border: 1px solid #fff;
+      font-size: 1.0625em;
+      font-family: 'montserratregular';
+      color: #fff;
+      font-style: italic;
+      text-decoration: none;
+      text-transform: uppercase;
+      -webkit-transition: 0.2s;
+      -moz-transition: 0.2s;
+      -ms-transition: 0.2s;
+      transition: 0.2s; }
+      #content .posts-wrap .container-fluid .row .post-details-wrap .post-details-wrap--read-wrap .post-details-wrap--read-link:hover {
+        text-shadow: 0 0 6px rgba(255, 255, 255, 0.75); }
+#content .posts-wrap .container-fluid .row.right .post-image {
+  float: right; }
+#content .posts-wrap .container-fluid .row.right .post-details-wrap {
+  float: right; }
+#content .posts-wrap .container-fluid .row.right:after {
+  content: '';
+  display: block;
+  clear: both; }
+#content .posts-wrap .container-fluid .load-more-posts--wrap {
+  padding: 60px 0;
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+  background: url("img/read-more.jpg") no-repeat center center;
+  background-size: cover;
+  position: relative; }
+  #content .posts-wrap .container-fluid .load-more-posts--wrap [class^='col-'] {
+    position: static; }
+  #content .posts-wrap .container-fluid .load-more-posts--wrap .load-more-posts--link {
+    width: 100%;
+    max-width: 440px;
+    height: 66px;
+    line-height: 68px;
+    border: 1px solid #fff;
+    text-align: center;
+    margin: 0 auto;
+    font-size: 1.0625em;
+    font-family: 'montserratregular';
+    color: #fff;
+    font-style: italic;
+    text-transform: uppercase;
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+    -webkit-transition: 0.2s;
+    -moz-transition: 0.2s;
+    -ms-transition: 0.2s;
+    transition: 0.2s; }
+    #content .posts-wrap .container-fluid .load-more-posts--wrap .load-more-posts--link:hover {
+      text-shadow: 0 0 6px rgba(255, 255, 255, 0.75); }
+  #content .posts-wrap .container-fluid .load-more-posts--wrap .overlay-background {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.35);
+    z-index: 1; }
 
 .container-fluid.wrap {
   max-width: 1170px;

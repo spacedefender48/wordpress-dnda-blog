@@ -8,12 +8,14 @@ Tags: wordpress, blog, project
 @import 'bootstrap.min';
 @import 'reset';
 @import 'fonts';
+@import 'mixin';
 
 // Plugins section
 
 
 // Main section
 @import 'header';
+@import 'main-content';
 
 
 // General Settings
