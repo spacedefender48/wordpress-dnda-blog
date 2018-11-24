@@ -5701,11 +5701,18 @@ table {
   font-style: normal; }
 header {
   min-height: 500px;
-  padding: 60px 0;
+  padding: 30px 0;
   position: relative;
   overflow: hidden; }
+  header .overlay-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.35);
+    z-index: 0; }
   header .canvas-btn {
-    margin: 0 auto;
     width: 25px;
     height: 25px;
     margin-top: 22px;
@@ -5721,12 +5728,15 @@ header {
     width: 60px;
     text-align: center;
     margin: 0 auto; }
-    header .logo-wrap img {
-      display: block;
-      width: 100%;
-      height: auto; }
+    header .logo-wrap a {
+      display: inline-block; }
+      header .logo-wrap a img {
+        display: block;
+        width: 100%;
+        height: auto; }
   header .main-post {
-    position: static; }
+    position: relative;
+    z-index: 1; }
   header .post-wrap {
     padding-top: 90px; }
     header .post-wrap .wp-post-image {
@@ -5736,8 +5746,8 @@ header {
       display: block;
       width: auto;
       height: 100%;
-      z-index: -1; }
-      @media only screen and (min-width: 1030px) {
+      z-index: -2; }
+      @media only screen and (min-width: 1076px) {
         header .post-wrap .wp-post-image {
           width: 100%;
           height: auto; } }
@@ -5791,6 +5801,8 @@ header {
         -ms-transition: 0.2s;
         transition: 0.2s; }
         header .post-wrap .post-wrap--read-wrap .post-wrap--read-link:hover {
+          background: #001f3f;
+          border-color: #001f3f;
           text-shadow: 0 0 6px rgba(255, 255, 255, 0.75); }
 
 #content .posts-wrap .container-fluid .row .post-image {
@@ -5867,6 +5879,8 @@ header {
       -ms-transition: 0.2s;
       transition: 0.2s; }
       #content .posts-wrap .container-fluid .row .post-details-wrap .post-details-wrap--read-wrap .post-details-wrap--read-link:hover {
+        background: #001f3f;
+        border-color: #001f3f;
         text-shadow: 0 0 6px rgba(255, 255, 255, 0.75); }
 #content .posts-wrap .container-fluid .row.right .post-image {
   float: right; }
@@ -5876,16 +5890,16 @@ header {
   content: '';
   display: block;
   clear: both; }
-#content .posts-wrap .container-fluid .load-more-posts--wrap {
+#content .load-more-posts--wrap {
   padding: 60px 0;
   border-top: 1px solid #fff;
   border-bottom: 1px solid #fff;
   background: url("img/read-more.jpg") no-repeat center center;
   background-size: cover;
   position: relative; }
-  #content .posts-wrap .container-fluid .load-more-posts--wrap [class^='col-'] {
+  #content .load-more-posts--wrap [class^='col-'] {
     position: static; }
-  #content .posts-wrap .container-fluid .load-more-posts--wrap .load-more-posts--link {
+  #content .load-more-posts--wrap .load-more-posts--link {
     width: 100%;
     max-width: 440px;
     height: 66px;
@@ -5905,9 +5919,11 @@ header {
     -moz-transition: 0.2s;
     -ms-transition: 0.2s;
     transition: 0.2s; }
-    #content .posts-wrap .container-fluid .load-more-posts--wrap .load-more-posts--link:hover {
+    #content .load-more-posts--wrap .load-more-posts--link:hover {
+      background: #001f3f;
+      border-color: #001f3f;
       text-shadow: 0 0 6px rgba(255, 255, 255, 0.75); }
-  #content .posts-wrap .container-fluid .load-more-posts--wrap .overlay-background {
+  #content .load-more-posts--wrap .overlay-background {
     width: 100%;
     height: 100%;
     position: absolute;
@@ -5915,6 +5931,56 @@ header {
     left: 0;
     background: rgba(0, 0, 0, 0.35);
     z-index: 1; }
+#content .load-more-posts--link.no-more-posts {
+  cursor: default; }
+  #content .load-more-posts--link.no-more-posts:hover {
+    background: transparent;
+    border-color: #fff;
+    text-shadow: none; }
+#content .load-more-posts--link.loading {
+  cursor: default; }
+  #content .load-more-posts--link.loading:hover {
+    background: transparent;
+    border-color: #fff;
+    text-shadow: none; }
+
+header .single-post {
+  position: relative;
+  z-index: 1; }
+  header .single-post .single-post-wrap {
+    padding-top: 150px; }
+    header .single-post .single-post-wrap .wp-post-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: block;
+      width: auto;
+      height: 100%;
+      z-index: -1; }
+      @media only screen and (min-width: 750px) {
+        header .single-post .single-post-wrap .wp-post-image {
+          width: 100%;
+          height: auto; } }
+    header .single-post .single-post-wrap .single-post--title {
+      font-size: 3em;
+      font-family: 'loraregular';
+      color: #fff;
+      text-align: left;
+      line-height: 57px;
+      margin-bottom: 50px;
+      text-transform: capitalize; }
+    header .single-post .single-post-wrap .single-post--author {
+      font-weight: bold;
+      font-size: 1.6875em;
+      font-family: 'montserratregular';
+      color: #fff; }
+
+#content .single-post-content .single-post-content--categories {
+  margin: 50px 0 60px;
+  font-size: 1.40625em;
+  font-family: 'montserratbold';
+  color: #929292;
+  text-transform: uppercase; }
 
 .container-fluid.wrap {
   max-width: 1170px;

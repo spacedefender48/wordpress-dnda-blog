@@ -1,13 +1,22 @@
 header {
     min-height: 500px;
-    padding: 60px 0;
+    padding: 30px 0;
     position: relative;
     overflow: hidden;
 
+    // Overlay background 
+    .overlay-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.35);
+        z-index: 0;
+    }
 
     // Canvas button
     .canvas-btn {
-        margin: 0 auto;
         width: 25px;
         height: 25px;
         margin-top: 22px;
@@ -33,10 +42,14 @@ header {
         text-align: center;
         margin: 0 auto;
 
-        img {
-            display: block;
-            width: 100%;
-            height: auto;
+        a {
+            display: inline-block;
+            
+            img {
+                display: block;
+                width: 100%;
+                height: auto;
+            }
         }
     }
 
@@ -44,7 +57,8 @@ header {
     // Main post in header
 
     .main-post {
-        position: static;
+        position: relative;
+        z-index: 1;
     }
 
     .post-wrap {
@@ -57,9 +71,9 @@ header {
             display: block;
             width: auto;
             height: 100%;
-            z-index: -1;
+            z-index: -2;
 
-            @media only screen and (min-width: 1030px) {
+            @media only screen and (min-width: 1076px) {
                 width: 100%;
                 height: auto;
             }
@@ -126,6 +140,8 @@ header {
 
 
                 &:hover {
+                    background: $primary-color;
+                    border-color: $primary-color;
                     text-shadow: 0 0 6px rgba(255, 255, 255, 0.75);
                 }
             }

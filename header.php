@@ -14,7 +14,9 @@
 
 
     <header class="site-header">
-        
+        <div class="overlay-bg">
+        </div>
+
         <div class="container-fluid wrap">
             <div class="row">
                 <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
@@ -27,7 +29,9 @@
 
                 <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
                     <div class="logo-wrap">
-                        <img src="<?php bloginfo('template_url'); ?>/img/logo.png" alt="Logo">
+                        <a href="<?php bloginfo('url');?>" title="Home page">
+                            <img src="<?php bloginfo('template_url'); ?>/img/logo.png" alt="Logo">
+                        </a>
                     </div>
                 </div>
 

@@ -9,14 +9,10 @@
                     if ($query -> have_posts()) :
                         while($query -> have_posts()) : $query -> the_post(); ?>
                             
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 main-post">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 main-post" data-post-image="<?php if( has_post_thumbnail() ) {
+                                    echo get_the_post_thumbnail_url($query -> ID, 'original');
+                                    }?>">
                             <div class="post-wrap">
-                                <?php 
-                                    if( has_post_thumbnail() ) {
-                                        the_post_thumbnail('original');
-                                    }
-                                ?>
-
                                 <h2 class="post-wrap--title">
                                     <a href="<?php the_permalink();?>"><?php the_title(); ?></a>
                                 </h2>
@@ -52,27 +48,19 @@
             <div class="container-fluid">
                     <?php 
                     $query = new WP_query(array(
-                        'posts_per_page' => '5',
-                        'orderby' => 'post_date'
+                        'posts_per_page' => '3',
+                        'orderby' => 'post_date',
+                        'offset' => '1'
                     ));
 
                     $num_post = 1;
                     $isRight = false;
 
                     if ($query -> have_posts()) :
-                        while($query -> have_posts()) : $query -> the_post(); 
-                        
-                            if ($num_post == 1) {
-                                
-                                $num_post = 2;
-                                continue;
-                            }
-
-                            else {
-                            
+                        while($query -> have_posts()) : $query -> the_post();                            
                             ?>
 
-                            <div class="row <?php if ($isRight) { echo 'right'; }?>">
+                            <div class="row post <?php if ($isRight) { echo 'right'; }?>">
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 post-image">
                                     <a href="<?php the_permalink();?>" class="post-image--link">
                                         <?php 
@@ -104,8 +92,6 @@
 
 
                     <?php 
-                            }
-                            
                             // Change orientation
                             $isRight = !$isRight;
                         endwhile;
@@ -113,15 +99,18 @@
 
                         wp_reset_postdata();
                     ?>
-                <div class="row load-more-posts--wrap">
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <div class="load-more-posts--link">
-                            Read more stories
-                        </div>
+            </div>
+        </div>
 
-                        <div class="overlay-background">
-                        
-                        </div>
+        <div class="container-fluid">
+            <div class="row load-more-posts--wrap">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="load-more-posts--link">
+                        Read more stories
+                    </div>
+
+                    <div class="overlay-background">
+                    
                     </div>
                 </div>
             </div>

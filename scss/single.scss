@@ -1,0 +1,61 @@
+header {
+
+    .single-post {
+        position: relative;
+        z-index: 1;
+
+        .single-post-wrap {
+            padding-top: 150px;
+
+            .wp-post-image {
+                position: absolute;
+                top: 0;
+                left: 0;
+                display: block;
+                width: auto;
+                height: 100%;
+                z-index: -1;
+            
+                @media only screen and (min-width: 750px) {
+                    width: 100%;
+                    height: auto;
+                }
+            }
+
+            .single-post--title {
+                font-size: 3em;
+                font-family: 'loraregular';
+                color: #fff;
+                text-align: left;
+                line-height: 57px;
+                margin-bottom: 50px;
+                text-transform: capitalize;
+            }
+
+            .single-post--author {
+                font-weight: bold;
+                font-size: 1.6875em;
+                font-family: 'montserratregular';
+                color: #fff;
+            }
+
+        }
+    }
+}
+
+#content {
+    .single-post-content {
+
+        .single-post-content--categories {
+            margin: 50px 0 60px;
+            font-size: 1.40625em;
+            font-family: 'montserratbold';
+            color: #929292;
+            text-transform: uppercase;
+            
+        }
+
+
+    }
+
+}
