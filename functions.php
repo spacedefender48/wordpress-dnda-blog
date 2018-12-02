@@ -1,7 +1,7 @@
 <?php 
 
     function load_resources() {
-        wp_enqueue_style('style', get_stylesheet_uri());
+        wp_enqueue_style('DNDA-style', get_stylesheet_uri());
         wp_enqueue_script('brands.min.js', get_template_directory_uri() . '/js/brands.min.js');
         wp_enqueue_script('solid.min.js', get_template_directory_uri() . '/js/solid.min.js');
         wp_enqueue_script('fontawesome.min.js', get_template_directory_uri() . '/js/fontawesome.min.js');
@@ -108,6 +108,72 @@
         $result .= '. Offset: ' . $posts_offset;
 
         wp_die($post_html);
+    }
+
+    // Comments function
+    function format_comment($comment, $args, $depth) {
+        if ( 'div' === $args['style'] ) {
+            $tag       = 'div';
+            $add_below = 'comment';
+        } else {
+            $tag       = 'li';
+            $add_below = 'div-comment';
+        }?>
+        <<?php echo $tag; ?> <?php comment_class( empty( $args['has_children'] ) ? '' : 'parent' ); ?> id="comment-<?php comment_ID() ?>"><?php 
+        if ( 'div' != $args['style'] ) { ?>
+            <div id="div-comment-<?php comment_ID() ?>" class="comment-body"><?php
+        } ?>
+            <div class="comment-author vcard"><?php 
+                if ( $args['avatar_size'] != 0 ) {
+                    echo get_avatar( $comment, $args['avatar_size'] ); 
+                } 
+                printf( __( '<span class="author-name">%s</span> <span class="comment-date">%s</span>' ), get_comment_author_link(), calculateDaysAgo(get_comment_date()) ); ?>
+            </div><?php 
+            if ( $comment->comment_approved == '0' ) { ?>
+                <em class="comment-awaiting-moderation"><?php _e( 'Your comment is awaiting moderation.' ); ?></em><br/><?php 
+            } ?>
+                
+            <div class="comment-text">
+                <?php comment_text(); ?>
+            </div>
+
+            <div class="reply-btn"><?php 
+                    comment_reply_link( 
+                        array_merge( 
+                            $args, 
+                            array( 
+                                'add_below' => $add_below, 
+                                'depth'     => $depth, 
+                                'max_depth' => $args['max_depth'] 
+                            ) 
+                        ) 
+                    ); ?>
+            </div><?php 
+        if ( 'div' != $args['style'] ) : ?>
+            </div><?php 
+        endif;
+    }
+
+    function calculateDaysAgo($comment_date) {
+        $now = time('YYYY-MM-dd HH:mm:ss'); // or your date as well
+        $your_date = strtotime($comment_date);
+        $datediff = $now - $your_date;
+        $hours = round($datediff / (60 * 60));
+
+        if ($hours < 24) {
+            $output = $hours . ' hours ago';
+        } else {
+            $days_count = floor($hours / 24);
+            
+            if ($days_count == 1) {
+                $output = $days_count . ' day ago';
+            } else {
+                $output = $days_count . ' days ago';
+            }
+        }
+        
+        
+        return $output;
     }
 
 ?>

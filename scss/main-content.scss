@@ -97,8 +97,8 @@
 
 
                             &:hover {
-                                background: $primary-color;
-                                border-color: $primary-color;
+                                background: #fff;
+                                color: #000;
                                 text-shadow: 0 0 6px rgba(255, 255, 255, 0.75);
                             }
                         }
@@ -159,8 +159,8 @@
             @include transition(0.2s);
 
             &:hover {
-                background: $primary-color;
-                border-color: $primary-color;  
+                background: #fff;
+                color: #000;
                 text-shadow: 0 0 6px rgba(255, 255, 255, 0.75);
             }
         }
@@ -181,16 +181,19 @@
 
         &:hover {
             background: transparent;
+            color: #fff;
             border-color: #fff;
             text-shadow: none;
         }
     }
 
+    
+
     .load-more-posts--link.loading {
         cursor: default;
 
         &:hover {
-            background: transparent;
+            background: #fff;
             border-color: #fff;
             text-shadow: none;
         }

@@ -1,0 +1,80 @@
+// Comment styles
+.comments-wrap {
+    padding-top: 50px;
+    padding-bottom: 50px;
+
+    .comments-list {
+        .comment {
+            margin-left: 80px;
+
+            .comment-body {
+                padding-top: 5px;
+                padding-left: 80px;
+                position: relative;
+                margin-bottom: 25px;
+
+                .comment-author {
+                    margin-bottom: 5px;
+
+                    img {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                    }
+
+                    .author-name {
+                        color: #a9a9a9;
+                        font-family: 'lorabold';
+                        font-size: 18px;
+                    }
+
+                    .comment-date {
+                        color: #cacaca;
+                        font-family: 'loraregular';
+                        font-size: 14px;
+                        margin-left: 10px;
+
+                    }
+                }
+
+                .comment-text {
+                    color: #292929;
+                    font-family: 'loraregular';
+                    font-size: 15px;
+                    line-height: 24px;
+                    margin-bottom: 25px;
+                }
+
+                .reply-btn {
+                    a {
+                        display: inline-block;
+                        text-decoration: none;
+                        width: 60px;
+                        height: 30px;
+                        line-height: 32px;
+                        text-align: center;
+                        color: #7f7f7f;
+                        font-family: 'loraregular';
+                        font-size: 14px;
+                        font-style: italic;
+                        background: #d3d3d3;
+                    }
+                }
+
+            }
+
+            
+            &.depth-1 {
+                margin-left: 0;
+            }
+        }
+
+        
+    }
+}
+
+
+// Comment form
+#respond {
+
+}

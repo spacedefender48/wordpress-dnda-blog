@@ -5699,6 +5699,52 @@ table {
   src: url("fonts/montserrat/montserrat-regular-webfont.eot?#iefix") format("embedded-opentype"), url("fonts/montserrat/montserrat-regular-webfont.woff2") format("woff2"), url("fonts/montserrat/montserrat-regular-webfont.woff") format("woff"), url("fonts/montserrat/montserrat-regular-webfont.ttf") format("truetype"), url("fonts/montserrat/montserrat-regular-webfont.svg#montserratregular") format("svg");
   font-weight: normal;
   font-style: normal; }
+.comments-wrap {
+  padding-top: 50px;
+  padding-bottom: 50px; }
+  .comments-wrap .comments-list .comment {
+    margin-left: 80px; }
+    .comments-wrap .comments-list .comment .comment-body {
+      padding-top: 5px;
+      padding-left: 80px;
+      position: relative;
+      margin-bottom: 25px; }
+      .comments-wrap .comments-list .comment .comment-body .comment-author {
+        margin-bottom: 5px; }
+        .comments-wrap .comments-list .comment .comment-body .comment-author img {
+          position: absolute;
+          top: 0;
+          left: 0; }
+        .comments-wrap .comments-list .comment .comment-body .comment-author .author-name {
+          color: #a9a9a9;
+          font-family: 'lorabold';
+          font-size: 18px; }
+        .comments-wrap .comments-list .comment .comment-body .comment-author .comment-date {
+          color: #cacaca;
+          font-family: 'loraregular';
+          font-size: 14px;
+          margin-left: 10px; }
+      .comments-wrap .comments-list .comment .comment-body .comment-text {
+        color: #292929;
+        font-family: 'loraregular';
+        font-size: 15px;
+        line-height: 24px;
+        margin-bottom: 25px; }
+      .comments-wrap .comments-list .comment .comment-body .reply-btn a {
+        display: inline-block;
+        text-decoration: none;
+        width: 60px;
+        height: 30px;
+        line-height: 32px;
+        text-align: center;
+        color: #7f7f7f;
+        font-family: 'loraregular';
+        font-size: 14px;
+        font-style: italic;
+        background: #d3d3d3; }
+    .comments-wrap .comments-list .comment.depth-1 {
+      margin-left: 0; }
+
 header {
   min-height: 500px;
   padding: 30px 0;
@@ -5801,8 +5847,8 @@ header {
         -ms-transition: 0.2s;
         transition: 0.2s; }
         header .post-wrap .post-wrap--read-wrap .post-wrap--read-link:hover {
-          background: #001f3f;
-          border-color: #001f3f;
+          background: #fff;
+          color: #000;
           text-shadow: 0 0 6px rgba(255, 255, 255, 0.75); }
 
 #content .posts-wrap .container-fluid .row .post-image {
@@ -5879,8 +5925,8 @@ header {
       -ms-transition: 0.2s;
       transition: 0.2s; }
       #content .posts-wrap .container-fluid .row .post-details-wrap .post-details-wrap--read-wrap .post-details-wrap--read-link:hover {
-        background: #001f3f;
-        border-color: #001f3f;
+        background: #fff;
+        color: #000;
         text-shadow: 0 0 6px rgba(255, 255, 255, 0.75); }
 #content .posts-wrap .container-fluid .row.right .post-image {
   float: right; }
@@ -5920,8 +5966,8 @@ header {
     -ms-transition: 0.2s;
     transition: 0.2s; }
     #content .load-more-posts--wrap .load-more-posts--link:hover {
-      background: #001f3f;
-      border-color: #001f3f;
+      background: #fff;
+      color: #000;
       text-shadow: 0 0 6px rgba(255, 255, 255, 0.75); }
   #content .load-more-posts--wrap .overlay-background {
     width: 100%;
@@ -5935,12 +5981,13 @@ header {
   cursor: default; }
   #content .load-more-posts--link.no-more-posts:hover {
     background: transparent;
+    color: #fff;
     border-color: #fff;
     text-shadow: none; }
 #content .load-more-posts--link.loading {
   cursor: default; }
   #content .load-more-posts--link.loading:hover {
-    background: transparent;
+    background: #fff;
     border-color: #fff;
     text-shadow: none; }
 
@@ -5962,7 +6009,7 @@ header .single-post {
           width: 100%;
           height: auto; } }
     header .single-post .single-post-wrap .single-post--title {
-      font-size: 3em;
+      font-size: 2.8em;
       font-family: 'loraregular';
       color: #fff;
       text-align: left;
@@ -5973,14 +6020,53 @@ header .single-post {
       font-weight: bold;
       font-size: 1.6875em;
       font-family: 'montserratregular';
-      color: #fff; }
+      color: #fff;
+      margin-bottom: 40px; }
+    header .single-post .single-post-wrap .single-post--date {
+      font-weight: bold;
+      font-size: 19px;
+      font-family: 'montserratregular';
+      color: #fff;
+      text-transform: uppercase; }
 
-#content .single-post-content .single-post-content--categories {
-  margin: 50px 0 60px;
-  font-size: 1.40625em;
-  font-family: 'montserratbold';
-  color: #929292;
-  text-transform: uppercase; }
+#content .single-post-content {
+  padding-bottom: 60px;
+  border-bottom: 1px solid #8a8a8a; }
+  #content .single-post-content .single-post-content--categories {
+    margin: 50px 0 60px;
+    font-size: 18px;
+    font-family: 'lorabold';
+    color: #929292;
+    text-transform: uppercase; }
+  #content .single-post-content .single-post-content--the-content {
+    font-size: 16px;
+    line-height: 23px;
+    font-family: 'montserratlight';
+    color: #282828;
+    margin-bottom: 80px; }
+  #content .single-post-content .single-post-content--nav-link {
+    padding: 0; }
+    #content .single-post-content .single-post-content--nav-link a {
+      display: inline-block;
+      width: 100%;
+      max-width: 200px;
+      border: 1px solid #000;
+      height: 50px;
+      line-height: 52px;
+      color: #282828;
+      font-size: 20px;
+      font-family: 'montserratregular';
+      text-decoration: none;
+      text-align: center;
+      -webkit-transition: 0.3s;
+      -moz-transition: 0.3s;
+      -ms-transition: 0.3s;
+      transition: 0.3s; }
+      #content .single-post-content .single-post-content--nav-link a:hover {
+        background: #000;
+        color: #fff; }
+    #content .single-post-content .single-post-content--nav-link.right {
+      text-align: right; }
 
 .container-fluid.wrap {
   max-width: 1170px;

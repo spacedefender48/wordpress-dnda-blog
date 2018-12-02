@@ -15,6 +15,10 @@
                                 <p class="single-post--author">
                                     by <?php the_author(); ?>
                                 </p>
+
+                                <p class="single-post--date">
+                                    <?php the_date();?>
+                                </p>
                             </div>
                         </div>
                 <?php
@@ -48,12 +52,36 @@
                                 ?>
                             </div>
 
+                            <div class="single-post-content--the-content">
+                                <?php the_content(); ?>
+                            </div>
 
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 single-post-content--nav-link">
+                                        <?php previous_post_link('%link', 'Previous article', TRUE);?>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 social">
+
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 single-post-content--nav-link right">
+                                        <?php next_post_link('%link', 'Next Article', TRUE);?>
+                                    </div>
+                                </div>
+                            </div>
                         <?php 
                             endwhile;
                         endif;
                     ?>
                 </div>
+            </div>
+
+            <div class="row">
+                <?php 
+                    if ( comments_open() || get_comments_number() ) :
+                        comments_template();
+                    endif; 
+                ?>
             </div>
         </div>
     </section>

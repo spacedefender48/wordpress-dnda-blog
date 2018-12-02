@@ -23,7 +23,7 @@ header {
             }
 
             .single-post--title {
-                font-size: 3em;
+                font-size: 2.8em;
                 font-family: 'loraregular';
                 color: #fff;
                 text-align: left;
@@ -37,6 +37,15 @@ header {
                 font-size: 1.6875em;
                 font-family: 'montserratregular';
                 color: #fff;
+                margin-bottom: 40px;
+            }
+
+            .single-post--date {
+                font-weight: bold;
+                font-size: 19px;
+                font-family: 'montserratregular';
+                color: #fff;
+                text-transform: uppercase;
             }
 
         }
@@ -45,16 +54,53 @@ header {
 
 #content {
     .single-post-content {
+        padding-bottom: 60px;
+        border-bottom: 1px solid #8a8a8a;
 
         .single-post-content--categories {
             margin: 50px 0 60px;
-            font-size: 1.40625em;
-            font-family: 'montserratbold';
+            font-size: 18px;
+            font-family: 'lorabold';
             color: #929292;
             text-transform: uppercase;
             
         }
 
+        .single-post-content--the-content {
+            font-size: 16px;
+            line-height: 23px;
+            font-family: 'montserratlight';
+            color: #282828;
+            margin-bottom: 80px;
+        }
+
+        .single-post-content--nav-link {
+            padding: 0;
+
+            a {
+                display: inline-block;
+                width: 100%;
+                max-width: 200px;
+                border: 1px solid #000;
+                height: 50px;
+                line-height: 52px;
+                color: #282828;
+                font-size: 20px;
+                font-family: 'montserratregular';
+                text-decoration: none;
+                text-align: center;
+                @include transition(0.3s);
+
+                &:hover {
+                    background: #000;
+                    color: #fff;
+                }
+            }
+
+            &.right {
+                text-align: right;
+            }
+        }
 
     }
 
