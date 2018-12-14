@@ -81,6 +81,42 @@
                 
             }
         });
+
+        // Canvas button
+        var $canvas_btn = $('.canvas-btn');
+        var $canvas_menu = $('.canvas-menu');
+        var $canvas_btn_close = $('.canvas-menu .close-btn');
+        var $body = $( 'body' );
+        var $canvas_overlay = $('.canvas-menu-overlay');
+
+        function openNavigation(){
+            $canvas_menu.addClass('open');
+            $body.addClass('nav-open');
+            $canvas_overlay.addClass('open');
+        }
+
+        function closeNavigation(){
+            $canvas_menu.removeClass('open');
+            $body.removeClass('nav-open');
+            $canvas_overlay.removeClass('open');
+        }
+
+        $canvas_btn.on('click', function(){
+            if($canvas_menu.hasClass('open')) {
+                closeNavigation();
+            } else {
+                openNavigation();
+            }
+        });
+
+        $canvas_btn_close.on('click', function(){
+            closeNavigation();
+        });
+
+        $canvas_overlay.on('click', function(){
+            closeNavigation();
+        });
+
     });
 
 })(jQuery, window, document)

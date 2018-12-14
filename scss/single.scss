@@ -59,11 +59,21 @@ header {
 
         .single-post-content--categories {
             margin: 50px 0 60px;
-            font-size: 18px;
+            font-size: 16px;
             font-family: 'lorabold';
             color: #929292;
             text-transform: uppercase;
             
+            a {
+                text-decoration: none;
+                color: #929292;
+                @include transition(0.2s);
+                font-family: 'lorabold';
+
+                &:hover {
+                    color: #282828;
+                }
+            }
         }
 
         .single-post-content--the-content {
@@ -72,6 +82,20 @@ header {
             font-family: 'montserratlight';
             color: #282828;
             margin-bottom: 80px;
+
+            p {
+                margin-bottom: 30px;
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+
+            .wp-block-gallery {
+                margin-bottom: 30px;
+            }
+
+
         }
 
         .single-post-content--nav-link {

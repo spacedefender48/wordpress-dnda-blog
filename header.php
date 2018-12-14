@@ -11,6 +11,29 @@
 
 <body <?php body_class();?>>
 
+    <div class="canvas-menu">
+        <div class="close-btn">
+            <i class="fas fa-times"></i>
+        </div>
+
+        <ul>
+            <li>
+                <a href="#">Home</a>
+            </li>
+            <li>
+                <a href="#">Categories</a>
+            </li>
+            <li>
+                <a href="#">About Us</a>
+            </li>
+            <li>
+                <a href="#">Contact Us</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="canvas-menu-overlay">
+    </div>
 
 
     <header class="site-header">

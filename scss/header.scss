@@ -36,6 +36,7 @@ header {
     }
 
 
+
     //  Logo
     .logo-wrap {
         width: 60px;
@@ -146,5 +147,84 @@ header {
                 }
             }
         }
+    }
+}
+
+// Canvas menu
+.canvas-menu {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    max-width: 400px;
+    height: 100%;
+    padding-top: 200px;
+    padding-right: 100px;
+    @include transition(0.3s);
+    z-index: 1000;
+    background: #1c2023;
+
+    .close-btn {
+        position: absolute;
+        right: 100px;
+        top: 100px;
+        width: 30px;
+        height: 30px;
+        color: #fff;
+        text-align: right;
+        font-size: 22px;
+        cursor: pointer;
+    }
+
+    ul {
+        li {
+            margin-bottom: 65px;
+            text-align: right;
+
+            a {
+                display: inline-block;
+                text-decoration: none;
+                color: #fff;
+                font-size: 22px;
+                font-family: 'montserratregular';
+                @include transition(0.3s);
+
+                &:hover {
+                    text-shadow: 0 0 3px rgba(255, 255, 255, 1);
+                }
+            }
+        }
+    }
+
+    &.open {
+        left: 0;
+    }
+}
+
+.canvas-menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.75);
+    cursor: pointer;
+    display: none;
+    @include transition(0.3s);
+
+    &.open {
+        display: block;
+    }
+}
+
+
+
+
+body {
+    overflow: initial;
+
+    &.nav-open {
+        overflow: hidden;
     }
 }

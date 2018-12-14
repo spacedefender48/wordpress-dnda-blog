@@ -41,15 +41,7 @@
                             while(have_posts()) : the_post(); ?>
 
                             <div class="single-post-content--categories">
-                                Category: <?php 
-                                    $categories = get_the_category(', ');
-                                    $category_names = '';
-                                    foreach($categories as $category) {
-                                        $category_names .= $category->cat_name . ', ';
-                                    }
-                                    
-                                    echo $category_names;
-                                ?>
+                                Category: <?php the_category(', '); ?>
                             </div>
 
                             <div class="single-post-content--the-content">
@@ -59,13 +51,13 @@
                             <div class="container-fluid">
                                 <div class="row">
                                     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 single-post-content--nav-link">
-                                        <?php previous_post_link('%link', 'Previous article', TRUE);?>
+                                        <?php previous_post_link('%link', 'Previous article', false);?>
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 social">
 
                                     </div>
                                     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 single-post-content--nav-link right">
-                                        <?php next_post_link('%link', 'Next Article', TRUE);?>
+                                        <?php next_post_link('%link', 'Next Article', false);?>
                                     </div>
                                 </div>
                             </div>

@@ -2,6 +2,7 @@
 .comments-wrap {
     padding-top: 50px;
     padding-bottom: 50px;
+    border-bottom: 1px solid #8a8a8a;
 
     .comments-list {
         .comment {
@@ -75,6 +76,17 @@
 
 
 // Comment form
-#respond {
+.comments-form {
+    padding-top: 60px;
+    padding-bottom: 100px;
 
+    #respond {
+        .comment-reply-title {
+            font-size: 24px;
+            font-family: 'loraregular';
+            color: #7f7f7f;
+            text-transform: uppercase;
+            margin-bottom: 50px;
+        }
+    }
 }
