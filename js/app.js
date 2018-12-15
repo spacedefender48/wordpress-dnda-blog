@@ -88,33 +88,44 @@
         var $canvas_btn_close = $('.canvas-menu .close-btn');
         var $body = $( 'body' );
         var $canvas_overlay = $('.canvas-menu-overlay');
+        var $canvas_menu_items = $('.canvas-menu .main-menu > li');
+        var $dropdown_menus = $('.canvas-menu ul li.dropdown');
+        var $canvas_back_btn = $('.canvas-menu .back-btn');
 
         function openNavigation(){
             $canvas_menu.addClass('open');
             $body.addClass('nav-open');
             $canvas_overlay.addClass('open');
+            $canvas_menu_items.show();
         }
 
         function closeNavigation(){
             $canvas_menu.removeClass('open');
             $body.removeClass('nav-open');
             $canvas_overlay.removeClass('open');
+            $canvas_menu_items.removeClass('open');
+            $canvas_back_btn.hide(0);
         }
 
-        $canvas_btn.on('click', function(){
-            if($canvas_menu.hasClass('open')) {
-                closeNavigation();
-            } else {
-                openNavigation();
-            }
+        $canvas_btn.on('click', openNavigation);
+
+        $canvas_btn_close.on('click', closeNavigation);
+        $canvas_overlay.on('click', closeNavigation);
+
+        // Dropdown menu in navigation
+        $dropdown_menus.on('click', function(){
+            $canvas_menu_items.not(this).each(function() {
+                var $this = $(this);
+                $this.hide(300); 
+            });
+            $canvas_back_btn.show(300);
+            $(this).addClass('open');
         });
 
-        $canvas_btn_close.on('click', function(){
-            closeNavigation();
-        });
-
-        $canvas_overlay.on('click', function(){
-            closeNavigation();
+        $canvas_back_btn.on('click', function(){
+            $canvas_menu_items.removeClass('open');
+            $canvas_menu_items.show(300);
+            $(this).hide();
         });
 
     });

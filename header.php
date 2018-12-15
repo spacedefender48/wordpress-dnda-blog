@@ -12,22 +12,38 @@
 <body <?php body_class();?>>
 
     <div class="canvas-menu">
+        <div class="back-btn">
+            <i class="fas fa-arrow-left"></i>
+        </div>
+
         <div class="close-btn">
             <i class="fas fa-times"></i>
         </div>
 
-        <ul>
+        <ul class="main-menu">
             <li>
-                <a href="#">Home</a>
+                <a href="<?php echo get_home_url();?>">Home</a>
+            </li>
+            <li class="dropdown">
+                <span>Categories</span>
+                <i class="fas fa-chevron-right icon"></i>
+
+                <ul class="dropdown-submenu">
+                    <?php 
+                        $args = array(
+                            'title_li' => '',
+                            'show_count' => true
+                        );
+
+                        wp_list_categories($args);
+                    ?>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="#">About Me</a>
             </li>
             <li>
-                <a href="#">Categories</a>
-            </li>
-            <li>
-                <a href="#">About Us</a>
-            </li>
-            <li>
-                <a href="#">Contact Us</a>
+                <a href="#">Contact</a>
             </li>
         </ul>
     </div>
