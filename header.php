@@ -39,11 +39,11 @@
                     ?>
                 </ul>
             </li>
-            <li class="dropdown">
-                <a href="#">About Me</a>
+            <li>
+                <a href="<?php echo get_page_link(35); ?>">About Me</a>
             </li>
             <li>
-                <a href="#">Contact</a>
+                <a href="<?php echo get_page_link(38); ?>">Contact Me</a>
             </li>
         </ul>
     </div>
@@ -75,6 +75,6 @@
                 </div>
 
                 <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-
+                    
                 </div>
             </div>

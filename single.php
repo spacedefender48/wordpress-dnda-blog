@@ -62,10 +62,83 @@
                                 </div>
                             </div>
                         <?php 
+                            $categories = get_the_category();
+                            $post_categories = '';
+                            if ($categories) {
+                                for($i=0; $i < count($categories); $i++) {
+                                    if ($i == count($categories) - 1) {
+                                        $post_categories .= $categories[$i]->term_id;
+                                    } else {
+                                        $post_categories .= $categories[$i]->term_id . ', '; 
+                                    }
+                                    
+                                }
+                            }
+                            // debug_to_console($post_categories);
+
+
+                            $post_tags = get_the_tags($post->ID);
+                            $all_tags = array();
+                            // Check if the post has any tags
+                            if ( $post_tags ) {
+                                foreach ( $post_tags as $tag ) {
+                                    $all_tags[] = $tag->term_id; 
+                                }
+                            }
+                            // debug_to_console();
+                            $current_post_id = $post->ID;
+
                             endwhile;
                         endif;
                     ?>
                 </div>
+            </div>
+
+            <div class="row similar-posts-wrap">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <h2 class="similar-posts-wrap--title">Next story from your reading list</h2>
+                </div>
+                <?php 
+                    $similar_posts = new WP_query(array(
+                        'post_type' => 'post',
+                        'post__not_in' => array($current_post_id),
+                        'tag__in' => $all_tags,
+                        'posts_per_page' => 3
+                    ));
+
+                    if($similar_posts->have_posts()) :
+                        while($similar_posts->have_posts()): $similar_posts->the_post();
+                        ?>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="similar-post" data-post-image="<?php if( has_post_thumbnail() ) {
+                                    echo get_the_post_thumbnail_url($similar_posts -> ID, 'large');
+                                    }?>">
+                                    
+
+                                    <h3 class="similar-post--title">
+                                        <a href="<?php the_permalink(); ?>">
+                                            <?php the_title();?>
+                                        </a>
+                                    </h3>
+
+                                    <p class="similar-post--meta">
+                                        <?php echo get_the_date();?> <span>/</span> <?php $categories = get_the_category(); echo $categories[0]->name ?> <span>/</span> BY <?php the_author(); ?>
+                                    </p>
+
+                                    <div class="overlay-bg"></div>
+                                </div>
+                            </div>
+                        <?php
+                        endwhile;
+                    else :?>
+
+                        <p>No similar posts</p>
+
+                        <?php
+                    endif;
+
+                    wp_reset_postdata();
+                ?>
             </div>
 
             <div class="row">

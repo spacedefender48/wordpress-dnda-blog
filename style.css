@@ -5699,10 +5699,22 @@ table {
   src: url("fonts/montserrat/montserrat-regular-webfont.eot?#iefix") format("embedded-opentype"), url("fonts/montserrat/montserrat-regular-webfont.woff2") format("woff2"), url("fonts/montserrat/montserrat-regular-webfont.woff") format("woff"), url("fonts/montserrat/montserrat-regular-webfont.ttf") format("truetype"), url("fonts/montserrat/montserrat-regular-webfont.svg#montserratregular") format("svg");
   font-weight: normal;
   font-style: normal; }
+@font-face {
+  font-family: 'montserratbold';
+  src: url("fonts/montserrat/montserrat-bold-webfont.eot");
+  src: url("fonts/montserrat/montserrat-bold-webfont.eot?#iefix") format("embedded-opentype"), url("fonts/montserrat/montserrat-bold-webfont.woff2") format("woff2"), url("fonts/montserrat/montserrat-bold-webfont.woff") format("woff"), url("fonts/montserrat/montserrat-bold-webfont.ttf") format("truetype"), url("fonts/montserrat/montserrat-bold-webfont.svg#montserratbold") format("svg");
+  font-weight: normal;
+  font-style: normal; }
 .comments-wrap {
   padding-top: 50px;
   padding-bottom: 50px;
   border-bottom: 1px solid #8a8a8a; }
+  .comments-wrap .comments-wrap--title {
+    font-size: 24px;
+    font-family: 'loraregular';
+    color: #7f7f7f;
+    text-transform: uppercase;
+    margin-bottom: 50px; }
   .comments-wrap .comments-list .comment {
     margin-left: 80px; }
     .comments-wrap .comments-list .comment .comment-body {
@@ -5745,6 +5757,11 @@ table {
         background: #d3d3d3; }
     .comments-wrap .comments-list .comment.depth-1 {
       margin-left: 0; }
+  .comments-wrap .no-comments {
+    font-size: 16px;
+    line-height: 23px;
+    font-family: 'montserratlight';
+    color: #282828; }
 
 .comments-form {
   padding-top: 60px;
@@ -5755,6 +5772,60 @@ table {
     color: #7f7f7f;
     text-transform: uppercase;
     margin-bottom: 50px; }
+  .comments-form #respond input[type='text'] {
+    color: #7f7f7f;
+    font-size: 15px;
+    font-family: 'montserratregular';
+    border: 1px solid #999999;
+    outline: none;
+    height: 65px;
+    width: 100%;
+    line-height: 65px;
+    padding: 0 12px;
+    margin-bottom: 30px; }
+    .comments-form #respond input[type='text']:focus {
+      border-color: #000; }
+  .comments-form #respond .col-author {
+    padding-left: 0;
+    padding-right: 25px; }
+    @media only screen and (max-width: 767px) {
+      .comments-form #respond .col-author {
+        padding-right: 0; } }
+  .comments-form #respond .col-email {
+    padding-left: 25px;
+    padding-right: 0; }
+    @media only screen and (max-width: 767px) {
+      .comments-form #respond .col-email {
+        padding-left: 0; } }
+  .comments-form #respond #comment {
+    color: #7f7f7f;
+    font-size: 15px;
+    font-family: 'montserratregular';
+    border: 1px solid #999999;
+    outline: none;
+    width: 100%;
+    height: 150px;
+    padding: 30px 12px 10px;
+    margin-bottom: 20px;
+    resize: none; }
+    .comments-form #respond #comment:focus {
+      border-color: #000; }
+  .comments-form #respond .form-submit input[type='submit'] {
+    width: 170px;
+    height: 60px;
+    background: #000;
+    color: #fff;
+    font-size: 20px;
+    font-family: 'montserratregular';
+    text-transform: uppercase;
+    line-height: 60px;
+    border: none;
+    outline: none;
+    float: right; }
+  .comments-form #respond .form-submit:after {
+    content: '';
+    display: block;
+    clear: both; }
 
 header {
   min-height: 500px;
@@ -6217,6 +6288,151 @@ header .single-post {
         color: #fff; }
     #content .single-post-content .single-post-content--nav-link.right {
       text-align: right; }
+#content .similar-posts-wrap {
+  padding: 60px 0;
+  border-bottom: 1px solid #8a8a8a; }
+  #content .similar-posts-wrap .similar-posts-wrap--title {
+    text-align: center;
+    font-size: 21px;
+    line-height: 28px;
+    color: #000;
+    font-family: 'montserratregular';
+    text-transform: uppercase;
+    margin-bottom: 50px;
+    font-weight: bolder; }
+  #content .similar-posts-wrap .similar-post {
+    display: block;
+    position: relative;
+    height: 300px;
+    overflow: hidden;
+    padding-top: 130px; }
+    #content .similar-posts-wrap .similar-post .similar-post--title {
+      margin-bottom: 20px;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+      height: 55px; }
+      #content .similar-posts-wrap .similar-post .similar-post--title a {
+        color: #fff;
+        font-size: 24px;
+        line-height: 28px;
+        font-family: 'loraregular';
+        text-transform: uppercase;
+        text-decoration: none; }
+        @media only screen and (min-width: 768px) and (max-width: 991px) {
+          #content .similar-posts-wrap .similar-post .similar-post--title a {
+            font-size: 20px; } }
+    #content .similar-posts-wrap .similar-post .similar-post--meta {
+      font-size: 10px;
+      font-family: 'montserratregular';
+      color: #fff;
+      text-align: center;
+      font-style: italic;
+      line-height: 23px;
+      text-transform: uppercase;
+      margin-bottom: 60px;
+      position: relative;
+      z-index: 2; }
+      #content .similar-posts-wrap .similar-post .similar-post--meta span {
+        margin: 0 2px; }
+    #content .similar-posts-wrap .similar-post .overlay-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.3);
+      z-index: 1; }
+    @media only screen and (max-width: 768px) {
+      #content .similar-posts-wrap .similar-post {
+        margin-bottom: 20px; } }
+
+body.error404 {
+  overflow: hidden; }
+  body.error404 header .overlay-bg {
+    background: none; }
+  body.error404 .error-404-wrap {
+    margin-top: 130px; }
+    body.error404 .error-404-wrap .error-404-wrap--title {
+      text-align: center;
+      color: #fff;
+      font-size: 64px;
+      font-family: 'lorabold';
+      text-transform: uppercase;
+      font-style: italic;
+      margin-bottom: 50px; }
+    body.error404 .error-404-wrap .error-404-wrap--desc {
+      text-align: center;
+      color: #fff;
+      font-size: 18px;
+      line-height: 27px;
+      font-family: 'montserratregular';
+      max-width: 700px;
+      margin: 0 auto 100px; }
+    body.error404 .error-404-wrap .error-404-wrap--link {
+      text-align: center; }
+      body.error404 .error-404-wrap .error-404-wrap--link a {
+        display: inline-block;
+        padding: 14px 60px;
+        border: 1px solid #fff;
+        font-size: 1.0625em;
+        font-family: 'montserratregular';
+        color: #fff;
+        text-decoration: none;
+        text-transform: uppercase;
+        -webkit-transition: 0.2s;
+        -moz-transition: 0.2s;
+        -ms-transition: 0.2s;
+        transition: 0.2s; }
+        body.error404 .error-404-wrap .error-404-wrap--link a:hover {
+          background: #fff;
+          color: #000;
+          text-shadow: 0 0 6px rgba(255, 255, 255, 0.75); }
+  body.error404 .body-overlay-bg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.65);
+    z-index: -1; }
+  body.error404 .error-404-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: auto;
+    z-index: -2; }
+
+header .about-me--title {
+  margin-top: 50px;
+  text-align: center;
+  color: #fff;
+  font-size: 26px;
+  line-height: 75px;
+  text-transform: uppercase;
+  font-family: 'montserratbold'; }
+  header .about-me--title span {
+    font-size: 54px; }
+
+#content .about-me--desc-wrap {
+  margin-top: 70px;
+  border: 2px solid #000;
+  padding: 50px 100px; }
+  #content .about-me--desc-wrap .about-me--desc-text {
+    font-family: 'montserratregular';
+    font-size: 16px;
+    line-height: 28px;
+    color: #4f4f4f;
+    text-align: justify; }
+  @media only screen and (max-width: 991px) {
+    #content .about-me--desc-wrap {
+      padding: 50px; } }
+  @media only screen and (max-width: 768px) {
+    #content .about-me--desc-wrap {
+      padding: 50px 20px; } }
 
 .container-fluid.wrap {
   max-width: 1170px;

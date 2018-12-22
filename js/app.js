@@ -12,21 +12,42 @@
         
         if ($index_main_post.length) {
             post_image_src = $index_main_post.data('post-image');
-        } else {
+        } else if ($('header .single-post').data('post-image')) {
             post_image_src = $('header .single-post').data('post-image');
+        } else {
+            post_image_src = $('header .page div').data('post-image');
         }
+        
+        
 
-        var single_post_image_src = $('header .single-post').data('post-image');
         $header.css({
             'background': 'url(' + post_image_src + ') no-repeat center center',
             'background-size': 'cover' 
         });
 
+        // var similar_post_image_src = $('.similar-posts-wrap .similar-post').data('post-image');
+        var $similar_post = $('.similar-posts-wrap .similar-post');
+
+        $similar_post.each(function(){
+            var $this = $(this);            
+            var similar_post_image_src = $this.data('post-image');
+            $this.css({
+                'background': 'url(' + similar_post_image_src + ') no-repeat center center',
+                'background-size': 'cover' 
+            });
+        });
+
         // Load More posts 
         var $load_more_btn = $('.load-more-posts--link');
-        var posts_to_load = 2;
-        var offset = $('#content .posts-wrap .post').length + 1; // +1 for the post in header
-        offset = 0;
+        var posts_to_load = 1;
+        var offset; 
+        var isInSingleCategory = ($('#single-category-title').length) ? true : false;
+
+        if (isInSingleCategory) {
+            offset = $('#content .posts-wrap .post').length;
+        } else {
+            offset = $('#content .posts-wrap .post').length + 1; // +1 for the post in header
+        }
 
         $load_more_btn.on('click', function() {
             if( !($load_more_btn.hasClass('loading') || $load_more_btn.hasClass('no-more-posts'))) {
@@ -39,6 +60,11 @@
                     isRight = 0;
                 }
 
+                var category_search;
+                if ($('#single-category-title').length) {
+                    category_search = $('#single-category-title').text();
+                }
+
                 $.ajax({
                     type: 'POST',
                     url: load_posts_ajax.url,
@@ -46,7 +72,8 @@
                         'action': 'load_more_posts',
                         'posts_to_load': posts_to_load,
                         'offset': offset,
-                        'isRightPost': isRight
+                        'isRightPost': isRight,
+                        'category': category_search
                     },
 
                     beforeSend: function() {

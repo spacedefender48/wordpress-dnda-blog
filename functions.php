@@ -37,12 +37,23 @@
         $posts_per_page = (isset($_POST['posts_to_load'])) ? $_POST['posts_to_load'] : 1;
         $posts_offset = (isset($_POST['offset'])) ? $_POST['offset'] : 0;
         $isRight = (isset($_POST['isRightPost'])) ? $_POST['isRightPost'] : false;
+        $singleCategory = (isset($_POST['category'])) ? strtolower($_POST['category']) : '';
 
-        $new_posts_loop = new WP_query(array(
-            'posts_per_page' => $posts_per_page,
-            'orderby' => 'post_date',
-            'offset' => $posts_offset
-        ));
+        if ($singleCategory) {
+            $new_posts_loop = new WP_query(array(
+                'posts_per_page' => $posts_per_page,
+                'orderby' => 'post_date',
+                'offset' => $posts_offset,
+                'category_name' => $singleCategory
+            ));
+        } else {
+            $new_posts_loop = new WP_query(array(
+                'posts_per_page' => $posts_per_page,
+                'orderby' => 'post_date',
+                'offset' => $posts_offset
+            ));
+        }
+        
 
         $post_html = '';
 
@@ -127,7 +138,7 @@
                 if ( $args['avatar_size'] != 0 ) {
                     echo get_avatar( $comment, $args['avatar_size'] ); 
                 } 
-                printf( __( '<span class="author-name">%s</span> <span class="comment-date">%s</span>' ), get_comment_author_link(), calculateDaysAgo(get_comment_date()) ); ?>
+                printf( __( '<span class="author-name">%s</span> <span class="comment-date">%s</span>' ), get_comment_author_link(), calculateDaysAgo(get_comment_time()) ); ?>
             </div><?php 
             if ( $comment->comment_approved == '0' ) { ?>
                 <em class="comment-awaiting-moderation"><?php _e( 'Your comment is awaiting moderation.' ); ?></em><br/><?php 
@@ -155,12 +166,22 @@
     }
 
     function calculateDaysAgo($comment_date) {
-        $now = time('YYYY-MM-dd HH:mm:ss'); // or your date as well
+        $now = time('YYYY-MM-dd HH:mm:ss');
+        // $local_time = localtime($now, true); // or your date as well
+        // $server_time = strtotime((1900 + $local_time['tm_year']) . '-' . ($local_time['tm_mon'] + 1) . '-' . $local_time['tm_mday'] . ' ' . $local_time['tm_hour'] . ':' . $local_time['tm_min'] . ':' . $local_time['tm_sec']);
+
         $your_date = strtotime($comment_date);
         $datediff = $now - $your_date;
         $hours = round($datediff / (60 * 60));
+        $minutes = floor($datediff / 60);
 
-        if ($hours < 24) {
+        if ($minutes < 1) {
+            $output = 'Right now';
+        } else if ($minutes == 1) {
+            $output = $minutes . ' minute ago';
+        } else if ($minutes < 60) {
+            $output = $minutes . ' minutes ago';
+        } else if ($hours < 24) {
             $output = $hours . ' hours ago';
         } else {
             $days_count = floor($hours / 24);
