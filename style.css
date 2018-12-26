@@ -6434,6 +6434,98 @@ header .about-me--title {
     #content .about-me--desc-wrap {
       padding: 50px 20px; } }
 
+.category-page--title {
+  margin-top: 100px;
+  text-align: center;
+  color: #fff;
+  font-size: 26px;
+  line-height: 75px;
+  text-transform: uppercase;
+  font-family: 'montserratbold'; }
+
+.site-header .search-page--title {
+  margin: 100px 0 75px;
+  text-align: center;
+  color: #fff;
+  font-size: 26px;
+  text-transform: uppercase;
+  font-family: 'montserratlight'; }
+  .site-header .search-page--title span {
+    display: inline-block;
+    margin-top: 15px;
+    font-family: 'montserratbold';
+    text-transform: none; }
+.site-header .search-page--options-wrap {
+  color: #fff;
+  font-size: 26px;
+  font-family: 'montserratlight';
+  max-width: 750px;
+  margin: 0 auto;
+  line-height: 27px;
+  text-align: center; }
+  .site-header .search-page--options-wrap a {
+    display: inline-block;
+    text-decoration: none;
+    color: #fff; }
+    .site-header .search-page--options-wrap a.sorted-item {
+      font-family: 'montserratbold'; }
+  .site-header .search-page--options-wrap .search-page--number-results {
+    margin-bottom: 20px; }
+.site-header .search-form {
+  margin-top: 7px; }
+.site-header .search-field--wrap {
+  position: relative; }
+  .site-header .search-field--wrap .search-field--input {
+    background-color: transparent;
+    border: none;
+    height: 37px;
+    padding: 0;
+    cursor: text;
+    -webkit-transition: 0.4s;
+    -moz-transition: 0.4s;
+    -ms-transition: 0.4s;
+    transition: 0.4s;
+    width: 0;
+    color: #7f7f7f;
+    font-size: 15px;
+    font-family: 'montserratregular';
+    outline: none; }
+    .site-header .search-field--wrap .search-field--input.open {
+      background-color: #fff;
+      border: 1px solid #999999;
+      padding: 0 38px 0 10px;
+      width: 100%; }
+    .site-header .search-field--wrap .search-field--input:focus {
+      border-color: #000; }
+  .site-header .search-field--wrap .search-field--icon {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 20px;
+    line-height: 37px;
+    text-align: center;
+    width: 37px;
+    height: 37px;
+    cursor: pointer;
+    color: #fff;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -ms-transition: 0.3s;
+    transition: 0.3s; }
+    .site-header .search-field--wrap .search-field--icon.open {
+      color: #000; }
+
+.search-form .search-submit {
+  display: none; }
+
+.search-term-highlight {
+  background-color: #eea969; }
+
+#content .posts-wrap .container-fluid .row.search-post .post-details-wrap .post-details-wrap--title,
+#content .posts-wrap .container-fluid .row.search-post .post-details-wrap .post-details-wrap--excerpt,
+#content .posts-wrap .container-fluid .row.search-post .post-details-wrap .post-details-wrap--meta {
+  font-style: normal; }
+
 .container-fluid.wrap {
   max-width: 1170px;
   margin: 0 auto; }

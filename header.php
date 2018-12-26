@@ -58,7 +58,7 @@
 
         <div class="container-fluid wrap">
             <div class="row">
-                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                     <div class="canvas-btn">
                         <div></div>
                         <div></div>
@@ -66,7 +66,7 @@
                     </div>
                 </div>
 
-                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                     <div class="logo-wrap">
                         <a href="<?php bloginfo('url');?>" title="Home page">
                             <img src="<?php bloginfo('template_url'); ?>/img/logo.png" alt="Logo">
@@ -74,7 +74,7 @@
                     </div>
                 </div>
 
-                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-                    
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <?php get_search_form(); ?>
                 </div>
             </div>

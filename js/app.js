@@ -8,6 +8,7 @@
         // Load image as background
         var $header = $('header');
         var $index_main_post = $('header .main-post');
+        var isInSearchPage = $('header .row.page.search').length;
         var post_image_src;
         
         if ($index_main_post.length) {
@@ -19,11 +20,18 @@
         }
         
         
-
-        $header.css({
-            'background': 'url(' + post_image_src + ') no-repeat center center',
-            'background-size': 'cover' 
-        });
+        if (isInSearchPage) {
+            $header.css({
+                'background': 'url(' + post_image_src + ') no-repeat bottom center',
+                'background-size': 'cover' 
+            });
+        } else {
+            $header.css({
+                'background': 'url(' + post_image_src + ') no-repeat center center',
+                'background-size': 'cover' 
+            });
+        }
+        
 
         // var similar_post_image_src = $('.similar-posts-wrap .similar-post').data('post-image');
         var $similar_post = $('.similar-posts-wrap .similar-post');
@@ -39,7 +47,7 @@
 
         // Load More posts 
         var $load_more_btn = $('.load-more-posts--link');
-        var posts_to_load = 1;
+        var posts_to_load = 3;
         var offset; 
         var isInSingleCategory = ($('#single-category-title').length) ? true : false;
 
@@ -154,6 +162,24 @@
             $canvas_menu_items.show(300);
             $(this).hide();
         });
+
+        // Search field
+        var $search_field = $('header .search-field--wrap .search-field--input');
+        var $search_icon = $('header .search-field--wrap .search-field--icon');
+
+        $search_icon.on('click', function(){
+            $search_field.addClass('open');
+            $search_icon.addClass('open');
+            // $search_icon.hide();
+        });
+
+        $search_field.on('blur scroll', function(){
+            $search_field.removeClass('open');
+            $search_icon.removeClass('open');
+        });
+
+
+
 
     });
 

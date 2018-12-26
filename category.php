@@ -1,6 +1,8 @@
-<?php get_header(); ?>
-            <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+<?php get_header(); 
+    $current_category = single_cat_title("", false);
+?>
+            <div class="row page">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" data-post-image="<?php bloginfo('template_url'); ?>/img/<?php echo strtolower($current_category); ?>-bg.jpg">
                     <h2 class="category-page--title"><?php single_cat_title('Category: <span id="single-category-title">', '</span>');?></h2>
                 </div>                
             </div>  <!-- Close div.row -->
@@ -13,7 +15,8 @@
             <div class="container-fluid">
                     <?php 
                     $query = new WP_query(array(
-                        'posts_per_page' => '1'
+                        'posts_per_page' => '5',
+                        'category_name' => strtolower($current_category),
                     ));
 
                     // $num_post = 1;

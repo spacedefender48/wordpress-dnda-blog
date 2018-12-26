@@ -1,0 +1,118 @@
+.site-header {
+
+    .search-page--title {
+        margin: 100px 0 75px;
+        text-align: center;
+        color: #fff;
+        font-size: 26px;
+        text-transform: uppercase;
+        font-family: 'montserratlight';
+
+        span {
+            display: inline-block;
+            margin-top: 15px;
+            font-family: 'montserratbold';
+            text-transform: none;
+        }
+    }
+
+    .search-page--options-wrap {
+        color: #fff;
+        font-size: 26px;
+        font-family: 'montserratlight';
+        max-width: 750px;
+        margin: 0 auto;
+        line-height: 27px;
+        text-align: center;
+
+        a {
+            display: inline-block;
+            text-decoration: none;
+            color: #fff;
+
+            &.sorted-item {
+                font-family: 'montserratbold';
+            }
+        }
+
+        .search-page--number-results {
+            margin-bottom: 20px;
+        }
+    }
+    
+    
+    .search-form {
+        margin-top: 7px;
+    }
+
+    .search-field--wrap {
+        position: relative;
+
+        .search-field--input {
+            background-color: transparent;
+            border: none;
+            height: 37px;
+            padding: 0;
+            cursor: text;
+            @include transition(0.4s);
+            width: 0;
+            color: #7f7f7f;
+            font-size: 15px;
+            font-family: 'montserratregular';
+            outline: none;
+    
+            &.open {
+                background-color: #fff;
+                border: 1px solid #999999;
+                padding: 0 38px 0 10px;
+                width: 100%;
+            }
+
+            &:focus {
+                border-color: #000;
+            }
+        }
+    
+        .search-field--icon {
+            position: absolute;
+            top: 0;
+            right: 0;
+            font-size: 20px;
+            line-height: 37px;
+            text-align: center;
+            width: 37px;
+            height: 37px;
+            cursor: pointer;
+            color: #fff;
+            @include transition(0.3s);
+
+            &.open {
+                // position: absolute;
+                // top: 0;
+                // left: 0;
+                color: #000;
+            }
+        }
+    }
+
+    
+}
+
+.search-form {
+    .search-submit { 
+        display:none;
+    }
+}
+
+.search-term-highlight {
+    background-color: #eea969;
+}
+
+#content .posts-wrap .container-fluid .row.search-post .post-details-wrap  {
+    .post-details-wrap--title,
+    .post-details-wrap--excerpt,
+    .post-details-wrap--meta {
+        font-style: normal;
+    }
+
+}
