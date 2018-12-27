@@ -19,6 +19,8 @@
 
     add_theme_support( 'post-thumbnails' );
 
+
+    //  Highlight search results
     function wps_highlight_results($text){
         if (is_search()) {
             $sr = get_query_var('s');
@@ -75,12 +77,16 @@
 
                 if ($isRight == 1) {
                     $rightClass = '';
+                    $order_1 = '';
+                    $order_2 = '';
                 } else {
                     $rightClass = 'right';
+                    $order_1 = 'order-1';
+                    $order_2 = 'order-2';
                 }
 
                 $post_html .= '<div class="row post ' . $rightClass . '">
-                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 post-image">
+                        <div class="col-sm-6 col-xs-12 ' . $order_2 . ' post-image">
                             <a href="' . get_the_permalink() . '" class="post-image--link">';
                                 
                 if( has_post_thumbnail() ) {
@@ -90,7 +96,7 @@
                 $post_html .= '</a>
                         </div>
 
-                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 post-details-wrap">
+                        <div class="col-sm-6 col-xs-12 ' . $order_1 . ' post-details-wrap">
                             <h2 class="post-details-wrap--title">
                                 <a href="' . get_the_permalink() . '">' . get_the_title() . '</a>
                             </h2>
@@ -149,7 +155,7 @@
                 if ( $args['avatar_size'] != 0 ) {
                     echo get_avatar( $comment, $args['avatar_size'] ); 
                 } 
-                printf( __( '<span class="author-name">%s</span> <span class="comment-date">%s</span>' ), get_comment_author_link(), calculateDaysAgo(get_comment_time()) ); ?>
+                printf( __( '<span class="author-name">%s</span> <span class="comment-date">%s</span>' ), get_comment_author_link(), get_comment_date() . ' ' . get_comment_time() ); ?>
             </div><?php 
             if ( $comment->comment_approved == '0' ) { ?>
                 <em class="comment-awaiting-moderation"><?php _e( 'Your comment is awaiting moderation.' ); ?></em><br/><?php 

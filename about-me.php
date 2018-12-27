@@ -5,7 +5,7 @@
     get_header();
 ?>
             <div class="row page">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" data-post-image="<?php bloginfo('template_url'); ?>/img/about-me.jpg">
+                <div class="col-12" data-post-image="<?php bloginfo('template_url'); ?>/img/about-me.jpg">
                     <h2 class="about-me--title">Hello My name is <br><span>Plamen<br>Kolarov</span></h2>
                 </div>
             </div>  <!-- Close div.row -->
@@ -16,7 +16,7 @@
     <section id="content">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-12">
                     <div class="about-me--desc-wrap">
                         <p class="about-me--desc-text">
                             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Libero repellendus quo soluta! Sed ut sunt eligendi ratione delectus ad voluptatum ducimus ex dolor. Saepe ratione iure cupiditate! Ad, explicabo illum.

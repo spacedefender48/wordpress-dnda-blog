@@ -124,6 +124,21 @@ header {
             &.right {
                 text-align: right;
             }
+
+            .missing-post {
+                display: inline-block;
+                width: 100%;
+                max-width: 200px;
+                border: 1px solid #c4c4c4;
+                height: 50px;
+                line-height: 52px;
+                color: #c4c4c4;
+                font-size: 20px;
+                font-family: 'montserratregular';
+                text-decoration: none;
+                text-align: center;
+                cursor: default;
+            }
         }
 
     }

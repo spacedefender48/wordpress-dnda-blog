@@ -102,6 +102,15 @@
             color: #7f7f7f;
             text-transform: uppercase;
             margin-bottom: 50px;
+
+            a {
+                color: #7f7f7f;
+            }
+
+            #cancel-comment-reply-link {
+                margin-left: 10px;
+                font-size: 15px;
+            }
         }
 
         input[type='text'] {
@@ -140,6 +149,23 @@
             }
         }
 
+
+        .comment-form-cookies-consent {
+
+            margin-bottom: 20px;
+
+            input[type='checkbox'] {
+                margin-right: 5px;
+            }
+
+            label {
+                color: #7f7f7f;
+                font-size: 15px;
+                font-family: 'montserratregular';
+            }
+            
+        }
+
         #comment {
             color: #7f7f7f;
             font-size: 15px;
@@ -170,6 +196,7 @@
                 border: none;
                 outline: none;
                 float: right;
+                cursor: pointer;
             }
 
             &:after {

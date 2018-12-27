@@ -28,3 +28,14 @@ Tags: wordpress, blog, project
     max-width: 1170px;
     margin: 0 auto;
 }
+
+// Social icons 
+body .social-icons {
+    position: relative;
+    text-align: center;
+
+    .sfsi_wDiv {
+        display: inline-block;
+        transform: translateX(-40%);
+    }
+}

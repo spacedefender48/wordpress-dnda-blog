@@ -2,7 +2,7 @@
     get_header();
 ?>
             <div class="row page search">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" data-post-image="<?php bloginfo('template_url'); ?>/img/search-bg.jpg">
+                <div class="col-12" data-post-image="<?php bloginfo('template_url'); ?>/img/search-bg.jpg">
                     <h3 class="search-page--title">Search results for: <br><span><?php echo get_search_query(); ?></span></h3>
 
                     <div class="search-page--options-wrap">
@@ -16,28 +16,36 @@
                             ?> results found
                         </p> 
                         
-                        <p> 
-                            Sort by: 
+                        <?php
+                            if ($allsearch->found_posts > 0) {
+                                ?>
 
-                            <a href="<?php bloginfo('url');?>?s=<?php echo get_search_query(); ?>&order=asc" title="Oldest Posts" 
-                            <?php 
-                                if ($order == 'asc') {
-                                    echo 'class="sorted-item"';
-                                }
-                            ?>>
-                                Oldest
-                            </a>
+                                <p> 
+                                    Sort by: 
 
-                            <a href="<?php bloginfo('url');?>?s=<?php echo get_search_query(); ?>&order=desc" title="Newest Posts"
-                            <?php 
-                                if ($order == 'desc') {
-                                    echo 'class="sorted-item"';
-                                }
-                            ?>>
-                            
-                                Newest
-                            </a>
-                        </p>
+                                    <a href="<?php bloginfo('url');?>?s=<?php echo get_search_query(); ?>&order=asc" title="Oldest Posts" 
+                                    <?php 
+                                        if ($order == 'asc') {
+                                            echo 'class="sorted-item"';
+                                        }
+                                    ?>>
+                                        Oldest
+                                    </a>
+
+                                    <a href="<?php bloginfo('url');?>?s=<?php echo get_search_query(); ?>&order=desc" title="Newest Posts"
+                                    <?php 
+                                        if ($order == 'desc') {
+                                            echo 'class="sorted-item"';
+                                        }
+                                    ?>>
+                                    
+                                        Newest
+                                    </a>
+                                </p>
+
+                                <?php
+                            }
+                        ?>
                     </div>
                 </div>
             </div>  <!-- Close div.row -->
@@ -66,7 +74,7 @@
                             ?>
 
                             <div class="row post search-post <?php if ($isRight) { echo 'right'; }?>">
-                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 post-image">
+                                <div class="col-sm-6 col-xs-12 <?php if ($isRight) { echo 'order-2'; }?> post-image">
                                     <a href="<?php the_permalink();?>" class="post-image--link">
                                         <?php 
                                             if( has_post_thumbnail() ) {
@@ -76,7 +84,7 @@
                                     </a>
                                 </div>
 
-                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 post-details-wrap">
+                                <div class="col-sm-6 col-xs-12 <?php if ($isRight) { echo 'order-1'; }?> post-details-wrap">
                                     <h2 class="post-details-wrap--title">
                                         <a href="<?php the_permalink();?>"><?php the_title(); ?></a>
                                     </h2>
@@ -100,7 +108,25 @@
                             // Change orientation
                             $isRight = !$isRight;
                         endwhile;
-                    endif;
+                    
+                    else:?>
+
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="no-results-wrap">
+                                    <div class="no-results-wrap--icon">
+                                        <i class="fas fa-search"></i>
+                                    </div>
+
+                                    <p class="no-results-wrap--desc">No Results Found</p>
+
+                                    <p class="no-results-wrap--desc">We couldn't find any content that match your search</p>
+                                </div>
+                            </div>                        
+                        </div>
+
+                    <?php
+                        endif;
                     ?>
             </div>
         </div>

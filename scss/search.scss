@@ -116,3 +116,29 @@
     }
 
 }
+
+.no-results-wrap {
+    padding: 50px 0;
+
+    .no-results-wrap--icon {
+        text-align: center;
+        font-size: 46px;
+        color: #282828;
+        margin-bottom: 30px;
+    }
+
+    .no-results-wrap--desc {
+        text-align: center;
+        max-width: 700px;
+        margin: 0 auto;
+        font-size: 24px;
+        line-height: 32px;
+        color: #282828;
+        font-family: 'montserratregular';
+        margin-bottom: 30px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}

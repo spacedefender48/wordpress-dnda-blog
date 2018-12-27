@@ -4,7 +4,7 @@
                     if (have_posts()) :
                         while(have_posts()) : the_post(); ?>
                             
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 single-post" data-post-image="<?php if( has_post_thumbnail() ) {
+                        <div class="col-12 single-post" data-post-image="<?php if( has_post_thumbnail() ) {
                                     echo get_the_post_thumbnail_url($query -> ID, 'original');
                                     }?>">
                             <div class="single-post-wrap">
@@ -35,7 +35,7 @@
     <section id="content">
         <div class="container-fluid wrap">
             <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 single-post-content">
+                <div class="col-12 single-post-content">
                     <?php 
                         if (have_posts()) :
                             while(have_posts()) : the_post(); ?>
@@ -50,14 +50,46 @@
 
                             <div class="container-fluid">
                                 <div class="row">
-                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 single-post-content--nav-link">
-                                        <?php previous_post_link('%link', 'Previous article', false);?>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 social">
+                                    <div class="col-md-3 col-6 order-1 single-post-content--nav-link">
+                                        <?php 
+                                        
+                                        // next_post_link('%link', 'Next Article', false);
+                                        $previous_post = get_adjacent_post( false, '', true);
+                                        if (is_a($previous_post, 'WP_Post')) { ?>
 
+                                            <a href="<?php echo get_permalink( $previous_post->ID ); ?>" title="<?php echo get_the_title( $previous_post->ID ); ?>">
+                                                Previous Post
+                                            </a>
+
+                                        <?php 
+                                        
+                                        } else { ?>
+                                            <p class="missing-post">This is oldest post</p>
+                                        <?php }
+                                        ?>
                                     </div>
-                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 single-post-content--nav-link right">
-                                        <?php next_post_link('%link', 'Next Article', false);?>
+                                    <div class="col-md-6 col-12 order-md-2 order-3 mt-4 mt-md-0">
+                                        <div class="social-icons">
+                                            <?php echo do_shortcode('[DISPLAY_ULTIMATE_SOCIAL_ICONS]'); ?>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-6 order-md-3 order-2 single-post-content--nav-link right">
+                                        <?php 
+                                        
+                                        // next_post_link('%link', 'Next Article', false);
+                                        $next_post = get_adjacent_post( false, '', false); 
+                                        if (is_a($next_post, 'WP_Post')) { ?>
+
+                                            <a href="<?php echo get_permalink( $next_post->ID ); ?>" title="<?php echo get_the_title( $next_post->ID ); ?>">
+                                                Next Post
+                                            </a>
+
+                                        <?php 
+                                        
+                                        } else { ?>
+                                            <p class="missing-post">This is latest post</p>
+                                        <?php }
+                                        ?>
                                     </div>
                                 </div>
                             </div>
@@ -95,7 +127,7 @@
             </div>
 
             <div class="row similar-posts-wrap">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-12">
                     <h2 class="similar-posts-wrap--title">Next story from your reading list</h2>
                 </div>
                 <?php 
@@ -109,7 +141,7 @@
                     if($similar_posts->have_posts()) :
                         while($similar_posts->have_posts()): $similar_posts->the_post();
                         ?>
-                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                            <div class="col-sm-4 col-xs-12">
                                 <div class="similar-post" data-post-image="<?php if( has_post_thumbnail() ) {
                                     echo get_the_post_thumbnail_url($similar_posts -> ID, 'large');
                                     }?>">

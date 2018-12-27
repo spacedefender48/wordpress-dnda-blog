@@ -2,7 +2,7 @@
     // Comment Loop
 ?>
 
-<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 comments-wrap">
+<div class="col-12 comments-wrap">
     <h2 class="comments-wrap--title">
         Comments
     </h2>
@@ -36,7 +36,7 @@
 
 </div>
 
-<div class= "col-lg-12 col-md-12 col-sm-12 col-xs-12 comments-form">
+<div class= "col-12 comments-form">
     <?php 
         $commenter = wp_get_current_commenter();
         $aria_req = ( $req ? " aria-required='true'" : '' );
@@ -44,11 +44,11 @@
         $args = array(
             'fields' => array(
                 'author' =>
-                    '<div class="container-fluid"><div class="row"><div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 col-author"><input id="author" name="author" type="text" placeholder="Name*" value="' . esc_attr( $commenter['comment_author'] ) .
+                    '<div class="container-fluid"><div class="row"><div class="col-sm-6 col-xs-12 col-author"><input id="author" name="author" type="text" placeholder="Name*" value="' . esc_attr( $commenter['comment_author'] ) .
                     '" size="30"' . $aria_req . ' /></div>',
 
                 'email' =>
-                    '<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 col-email"><input id="email" name="email" type="text" placeholder="Email*" value="' . esc_attr(  $commenter['comment_author_email'] ) .
+                    '<div class="col-sm-6 col-xs-12 col-email"><input id="email" name="email" type="text" placeholder="Email*" value="' . esc_attr(  $commenter['comment_author_email'] ) .
                     '" size="30"' . $aria_req . ' /></div></div></div>'
             ),
 
