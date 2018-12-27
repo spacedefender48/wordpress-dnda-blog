@@ -179,7 +179,26 @@
         });
 
 
+        // Scroll top button
+        var $scroll_top_btn = $('.scroll-top');
 
+        function calculateScrollTop() {
+            if ($win.scrollTop() < 500) {
+                $scroll_top_btn.fadeOut(200);
+            } else {
+                $scroll_top_btn.fadeIn(200);
+            }
+        }
+
+        $win.on('resize scroll', function(){
+            calculateScrollTop();
+        });
+
+        $scroll_top_btn.on('click', function () {
+            $('html, body').animate({ scrollTop: 0 }, 500);
+        });
+
+        calculateScrollTop();
 
     });
 

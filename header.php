@@ -11,6 +11,10 @@
 
 <body <?php body_class();?>>
 
+    <div class="scroll-top">
+        <i class="fas fa-chevron-up"></i>
+    </div>
+
     <div class="canvas-menu">
         <div class="back-btn">
             <i class="fas fa-arrow-left"></i>
