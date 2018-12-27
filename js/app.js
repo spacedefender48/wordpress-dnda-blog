@@ -58,7 +58,9 @@
         }
 
         $load_more_btn.on('click', function() {
-            if( !($load_more_btn.hasClass('loading') || $load_more_btn.hasClass('no-more-posts'))) {
+            if( !($load_more_btn.hasClass('spinner') || $load_more_btn.hasClass('no-more-posts'))) {
+
+
                 // Load AJAX
                 var lastPostRight = $('#content .posts-wrap .post:last-child');
                 var isRight;
@@ -85,8 +87,9 @@
                     },
 
                     beforeSend: function() {
-                        $load_more_btn.addClass('loading');
-                        $load_more_btn.text('Loading');
+                        $load_more_btn.addClass('spinner');
+                        $load_more_btn.text('');
+                        
                     },
 
                     success: function(data) {
@@ -99,13 +102,13 @@
                             $data.hide().appendTo($posts_wrap).fadeIn(800);
                             
                             $load_more_btn.text('Read More Stories');
-                            $load_more_btn.removeClass('loading');
+                            $load_more_btn.removeClass('spinner');
     
     
                             offset += posts_to_load;
 
                         } else {
-                            $load_more_btn.removeClass('loading').addClass('no-more-posts').html('No more posts');
+                            $load_more_btn.removeClass('spinner').addClass('no-more-posts').html('No more posts');
                         }
 
                     }

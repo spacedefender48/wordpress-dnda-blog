@@ -8797,6 +8797,9 @@ header .about-me--title {
     .no-results-wrap .no-results-wrap--desc:last-child {
       margin-bottom: 0; }
 
+@keyframes loading {
+  to {
+    transform: rotate(360deg); } }
 .container-fluid.wrap {
   max-width: 1170px;
   margin: 0 auto; }
@@ -8831,5 +8834,20 @@ body .social-icons {
   .scroll-top:hover {
     color: #fff;
     background: #282828; }
+
+.spinner:before {
+  content: '';
+  box-sizing: border-box;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 50px;
+  height: 50px;
+  margin-top: -25px;
+  margin-left: -25px;
+  border-radius: 50%;
+  border: 3px solid #ccc;
+  border-top-color: #333;
+  animation: loading .6s linear infinite; }
 
 /*# sourceMappingURL=style.css.map */
