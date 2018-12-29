@@ -60,7 +60,6 @@
         $load_more_btn.on('click', function() {
             if( !($load_more_btn.hasClass('spinner') || $load_more_btn.hasClass('no-more-posts'))) {
 
-
                 // Load AJAX
                 var lastPostRight = $('#content .posts-wrap .post:last-child');
                 var isRight;
@@ -89,7 +88,6 @@
                     beforeSend: function() {
                         $load_more_btn.addClass('spinner');
                         $load_more_btn.text('');
-                        
                     },
 
                     success: function(data) {
@@ -169,14 +167,25 @@
         // Search field
         var $search_field = $('header .search-field--wrap .search-field--input');
         var $search_icon = $('header .search-field--wrap .search-field--icon');
+        var $canvas_wrap = $('#canvas-btn-wrap');
+        var $logo_wrap = $('#logo-wrap');
+        var $search_wrap = $('#search-wrap');
 
         $search_icon.on('click', function(){
+            $canvas_wrap.addClass('col-1');
+            $canvas_wrap.removeClass('col-4');
+            $logo_wrap.addClass('d-none');
+            $search_wrap.addClass('col-11');
             $search_field.addClass('open');
             $search_icon.addClass('open');
             // $search_icon.hide();
         });
 
         $search_field.on('blur scroll', function(){
+            $canvas_wrap.removeClass('col-1');
+            $canvas_wrap.addClass('col-4');
+            $logo_wrap.removeClass('d-none');
+            $search_wrap.removeClass('col-11');
             $search_field.removeClass('open');
             $search_icon.removeClass('open');
         });
@@ -202,6 +211,139 @@
         });
 
         calculateScrollTop();
+
+        // Contact form logic
+        var $name_field = $('#contact-me-form #name-field');
+        var $email_field = $('#contact-me-form #email-field');
+        var $name_error = $('#contact-me-form .name-error-text');
+        var $email_error = $('#contact-me-form .email-error-text');
+        
+        var $submit_btn = $('#contact-me-form .submit-btn');
+        var $submit_wrap = $('#contact-me-form .submit-wrap');
+
+
+        function checkName(isFocusSet = false) {
+            var name_value = $name_field.val();
+
+            if (name_value.trim() == '') {
+                $name_error.show();
+                // $name_field.addClass('error-input');
+                if (isFocusSet) {
+                    $name_field.focus();
+                }
+                return false;
+            } else {
+                $name_error.hide();
+                // $name_field.removeClass('error-input');
+                return true;
+            }
+        }
+
+        function checkEmail(isFocusSet = false) {
+            var email_value = $email_field.val();
+            var pattern = /^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i;
+
+            if (email_value.trim() == '') {
+                $email_error.text('Email is required');
+                $email_error.show();
+                // $email_field.addClass('error-input');
+                
+                if (isFocusSet) {
+                    $email_field.focus();
+                }
+                return false;
+            } else {
+
+                if (pattern.test(email_value)) {
+                    $email_error.hide();
+                    $email_field.removeClass('error-input');
+                    return true;
+                } else {
+                    $email_error.text('Invalid email');
+                    $email_error.show();
+                    // $email_field.addClass('error-input');
+
+                    if (isFocusSet) {
+                        $email_field.focus();
+                    }
+                    return false;
+                }
+            }
+
+        }
+
+        function validateContactForm() {
+            var is_form_valid = checkName(true) && checkEmail(true);
+
+            return is_form_valid;
+        }
+
+
+
+        $submit_btn.on('click submit', function (e) {
+            e.preventDefault();
+            
+            if (!$submit_btn.hasClass('loading')) {
+                var is_form_ready_to_send = validateContactForm();
+                if (is_form_ready_to_send) {
+                    
+                    var details = $('#contact-me-form').serialize();
+                    
+                    $.ajax({
+                        type: 'POST',
+                        url: send_email_ajax.url,
+                        data: {
+                            'action': 'send_email_ajax',
+                            'data': details,
+                            'security': send_email_ajax.security
+                        },
+
+                        beforeSend: function() {
+                            $submit_wrap.addClass('spinner');
+                            $submit_btn.addClass('loading');
+                            $submit_btn.text('');
+                        },
+
+                        success: function(data) {
+                            $('#dialog').html('Thank you for your message. We will contact you in the next few days');
+                            $submit_wrap.removeClass('spinner');
+                            $submit_btn.removeClass('loading');
+                            $submit_btn.text('Send');
+                            $('#dialog').dialog('open');
+                        },
+
+                        fail: function(data) {
+                            $('#dialog').html("Sorry. The message you sent did not receive to its target");
+                            $submit_wrap.removeClass('spinner');
+                            $submit_btn.removeClass('loading');
+                            $submit_btn.text('Send');
+                            $('#dialog').dialog('open');
+                        }
+                    });
+                }
+            }
+
+        });
+
+        function initiateDialogs() {
+            $( "#dialog" ).dialog({
+                autoOpen: false,
+                dialogClass: "center custom-dialog",
+                width: '350px',
+                buttons: [
+                  {
+                    text: "OK",
+                    click: function() {
+                        $( this ).dialog( "close" );
+                    }
+                  }
+                ],
+
+                modal: true
+            });
+        }
+
+        initiateDialogs();
 
     });
 

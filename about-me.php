@@ -13,18 +13,37 @@
 
     </header>
 
-    <section id="content">
+    <section id="about-me-content">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
                     <div class="about-me--desc-wrap">
-                        <p class="about-me--desc-text">
-                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Libero repellendus quo soluta! Sed ut sunt eligendi ratione delectus ad voluptatum ducimus ex dolor. Saepe ratione iure cupiditate! Ad, explicabo illum.
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate, molestias doloribus? A aspernatur eligendi, fugit in numquam saepe voluptates dolor assumenda quam ex ipsam laudantium reprehenderit. Ullam maxime voluptate quos!
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, aut quibusdam qui maiores omnis quia dolor vitae fugiat eaque placeat quis repellendus necessitatibus asperiores sed? Corrupti odit tenetur obcaecati sit?
-                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Harum suscipit explicabo iste natus recusandae nobis ab dolor, nemo sapiente quis, dolores non asperiores nulla fugiat eligendi architecto culpa similique. Aliquam.
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam molestiae hic est fuga sed magni autem reprehenderit, voluptatum quisquam alias minima laborum, beatae dolores et voluptate! Autem numquam natus non?
-                        </p>
+                        <div class="about-me--desc-text">
+                            <p>
+                                I am Plamen Kolarov, a front-end developer from Varna, Bulgaria. As a front-end developer, I create modern websites that are of high quality and at the same time responsive for many types of devices. I can create a website from scratch or with WordPress as content management system.
+                            </p>
+                            
+                            <p>
+                                My passion for programming started during my time in university. In 2015 I graduated from the University of Sofia 'St. Kliment Ohridski' with a Bachelor's degree in Software Engineering. Since then, I am always keen to learn the latest technologies in web development that will make both the development of the site and the final user experience easier.
+                            </p>
+
+                            <div class="social-icons-wrap">
+                                <a href="https://www.facebook.com/profile.php?id=100001624546227" class="social-icons-wrap--icon-link facebook" target="_blank">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="https://github.com/spacedefender48/" class="social-icons-wrap--icon-link github" target="_blank">
+                                    <i class="fab fa-github-alt"></i>
+                                </a>
+                                <a href="https://www.linkedin.com/in/plamen-kolarov-62bbb7141/" class="social-icons-wrap--icon-link linkedin" target="_blank">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="https://plus.google.com/113944910930564683462" class="social-icons-wrap--icon-link google" target="_blank">
+                                    <i class="fab fa-google-plus-g"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        
                     </div>
                 </div>
             </div>

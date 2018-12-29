@@ -27,7 +27,7 @@
                             ?>
 
                             <div class="row post <?php if ($isRight) { echo 'right'; }?>">
-                                <div class="col-sm-6 col-xs-12 <?php if ($isRight) { echo 'order-2'; }?> post-image">
+                                <div class="col-sm-6 col-xs-12 <?php if ($isRight) { echo 'order-sm-2'; }?> post-image">
                                     <a href="<?php the_permalink();?>" class="post-image--link">
                                         <?php 
                                             if( has_post_thumbnail() ) {
@@ -37,7 +37,7 @@
                                     </a>
                                 </div>
 
-                                <div class="col-sm-6 col-xs-12 <?php if ($isRight) { echo 'order-1'; }?> post-details-wrap">
+                                <div class="col-sm-6 col-xs-12 <?php if ($isRight) { echo 'order-sm-1'; }?> post-details-wrap">
                                     <h2 class="post-details-wrap--title">
                                         <a href="<?php the_permalink();?>"><?php the_title(); ?></a>
                                     </h2>

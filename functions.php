@@ -6,11 +6,15 @@
         wp_enqueue_script('solid.min.js', get_template_directory_uri() . '/js/solid.min.js');
         wp_enqueue_script('fontawesome.min.js', get_template_directory_uri() . '/js/fontawesome.min.js');
         wp_enqueue_script('jquery.js', get_template_directory_uri() . '/js/jquery.js');
+        wp_enqueue_script('jquery-ui.js', get_template_directory_uri() . '/js/jquery-ui.js');
         wp_enqueue_script('app.js', get_template_directory_uri() . '/js/app.js');
 
         wp_localize_script('app.js', 'load_posts_ajax', array(
             'url' => admin_url( 'admin-ajax.php' )
         ));
+
+        wp_localize_script( 'app.js', 'send_email_ajax', array( 'url' => admin_url( 'admin-ajax.php' ),
+                                                            'security' => wp_create_nonce('send_email_nonce') ) );
     }
 
     add_action('wp_enqueue_scripts', 'load_resources');
@@ -81,8 +85,8 @@
                     $order_2 = '';
                 } else {
                     $rightClass = 'right';
-                    $order_1 = 'order-1';
-                    $order_2 = 'order-2';
+                    $order_1 = 'order-sm-1';
+                    $order_2 = 'order-sm-2';
                 }
 
                 $post_html .= '<div class="row post ' . $rightClass . '">
@@ -182,38 +186,6 @@
         endif;
     }
 
-    function calculateDaysAgo($comment_date) {
-        $now = time('YYYY-MM-dd HH:mm:ss');
-        // $local_time = localtime($now, true); // or your date as well
-        // $server_time = strtotime((1900 + $local_time['tm_year']) . '-' . ($local_time['tm_mon'] + 1) . '-' . $local_time['tm_mday'] . ' ' . $local_time['tm_hour'] . ':' . $local_time['tm_min'] . ':' . $local_time['tm_sec']);
-
-        $your_date = strtotime($comment_date);
-        $datediff = $now - $your_date;
-        $hours = round($datediff / (60 * 60));
-        $minutes = floor($datediff / 60);
-
-        if ($minutes < 1) {
-            $output = 'Right now';
-        } else if ($minutes == 1) {
-            $output = $minutes . ' minute ago';
-        } else if ($minutes < 60) {
-            $output = $minutes . ' minutes ago';
-        } else if ($hours < 24) {
-            $output = $hours . ' hours ago';
-        } else {
-            $days_count = floor($hours / 24);
-            
-            if ($days_count == 1) {
-                $output = $days_count . ' day ago';
-            } else {
-                $output = $days_count . ' days ago';
-            }
-        }
-        
-        
-        return $output;
-    }
-
     // Move Comment message field to bottom
     function wpb_move_comment_field_to_bottom( $fields ) {
         $comment_field = $fields['comment'];
@@ -223,5 +195,66 @@
     }
         
     add_filter( 'comment_form_fields', 'wpb_move_comment_field_to_bottom' );
+
+    function wpshout_twitter_length_excerpt( $text ) {
+        if( is_admin() ) {
+            return $text;
+        }
+        // Fetch the post content directly
+        $text = get_the_content();
+        // Clear out shortcodes
+        $text = strip_shortcodes( $text );
+        
+        // Get the first 140 characteres
+        $text = substr( $text, 0, 180 );
+    
+        // Add a read more tag
+        $text .= '…';
+        return $text;
+    }
+    // Leave priority at default of 10 to allow further filtering
+    add_filter( 'wp_trim_excerpt', 'wpshout_twitter_length_excerpt', 10, 1 );
+
+    // Send Email function
+    function send_email_ajax() {
+
+        if (! check_ajax_referer( 'send_email_nonce', 'security' )) {
+
+            wp_send_json_error( 'Invalid security token sent.' );
+            wp_die();
+            
+        } else {
+            
+            $data = $_POST['data'];
+            $parsed_str = array();
+            parse_str($data, $parsed_str);
+
+            $name = $parsed_str['f_name'];
+            $from_email = $parsed_str['f_email'];
+            $message = $parsed_str['f_message'];
+            $to_email = 'spacedefender48@gmail.com';
+
+
+            $body = sprintf('Name: %s%sEmail: %s%sMessage: %s', $name, PHP_EOL,  $from_email, PHP_EOL, $subject, PHP_EOL, $message);
+
+            apply_filters( 'wp_mail_from', 'spacedefender48@gmail.com');
+
+            $email_status = wp_mail($to_email, 'DNDA blog: ' .  $subject, $body);
+            
+            if ($email_status) {
+                echo "An email has been sent.";
+            } else {
+                echo "Error: email has not been sent";
+            }
+        }
+
+        
+        die();
+    }
+
+    add_action('wp_ajax_send_email_ajax', 'send_email_ajax');
+    add_action('wp_ajax_nopriv_send_email_ajax', 'send_email_ajax');
+
+
 
 ?>

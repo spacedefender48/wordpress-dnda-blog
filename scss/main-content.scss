@@ -52,6 +52,10 @@
                             text-decoration: none;
                             color: #fff;
                         }
+
+                        @media only screen and (max-width: 768px) {
+                            font-size: 22px;
+                        }
                     }
 
                     .post-details-wrap--excerpt {
@@ -63,6 +67,10 @@
                         margin: 0 auto 25px;
                         font-style: italic;
                         line-height: 23px;
+
+                        @media only screen and (max-width: 768px) {
+                            font-size: 13px;
+                        }
                     }
 
                     .post-details-wrap--meta {
@@ -77,6 +85,14 @@
 
                         span {
                             margin: 0 15px;
+
+                            @media only screen and (max-width: 768px) {
+                                margin: 0 5px;
+                            }
+                        }
+
+                        @media only screen and (max-width: 768px) {
+                            margin-bottom: 25px;
                         }
                     }
 

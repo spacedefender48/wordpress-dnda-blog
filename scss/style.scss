@@ -11,6 +11,8 @@ Tags: wordpress, blog, project
 @import 'mixin';
 
 // Plugins section
+@import 'jquery-ui';
+@import 'ui-widgets';
 
 // Main section
 @import 'comments';
@@ -19,8 +21,10 @@ Tags: wordpress, blog, project
 @import 'single';
 @import 'error-404';
 @import 'about-me';
+@import 'contact-me';
 @import 'category';
 @import 'search';
+@import 'footer';
 
 @keyframes loading {
     to {

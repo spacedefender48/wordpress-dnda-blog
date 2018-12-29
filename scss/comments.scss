@@ -135,7 +135,11 @@
             padding-left: 0;
             padding-right: 25px;
 
-            @media only screen and (max-width: 767px){
+            @media only screen and (max-width: 767px) and (min-width: 576px) {
+                padding-right: 10px;
+            }
+
+            @media only screen and (max-width: 575px) {
                 padding-right: 0;
             }
         }
@@ -151,16 +155,22 @@
 
 
         .comment-form-cookies-consent {
-
+            position: relative;
+            padding-left: 20px;
             margin-bottom: 20px;
 
             input[type='checkbox'] {
                 margin-right: 5px;
+                position: absolute;
+                top: 50%;
+                left: 0;
+                transform: translateY(-50%);
             }
 
             label {
                 color: #7f7f7f;
                 font-size: 15px;
+                line-height: 20px;
                 font-family: 'montserratregular';
             }
             

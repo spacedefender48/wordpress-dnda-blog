@@ -4,7 +4,7 @@
 
 <div class="col-12 comments-wrap">
     <h2 class="comments-wrap--title">
-        Comments
+        Comments (<?php echo get_comments_number(); ?>)
     </h2>
     <?php
     if (have_posts()) :

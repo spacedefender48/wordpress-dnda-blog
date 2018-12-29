@@ -1,0 +1,54 @@
+// Dialog buttons
+.custom-dialog {
+
+    .ui-dialog-content {
+        line-height: 22px;
+        text-align: center;
+    }
+
+    .ui-dialog-buttonpane {
+        border-top: none;
+        padding-right: 0.4em;
+    
+        .ui-dialog-buttonset {
+    
+            .ui-button {
+                background: #40ca8c;
+                color: #fff;
+                @include transition(0.3s);
+
+                &:active {
+                    border-color: #40ca8c;
+                }
+
+                &:hover {
+                    background: #2d9366;
+                }
+            }
+
+
+            
+        }
+
+    }
+}
+
+.custom-dialog.center {
+    .ui-dialog-buttonpane {
+     
+        .ui-dialog-buttonset {
+            float: none;
+
+            .ui-button {
+                display: block;
+                margin: 0 auto;
+            }
+            
+        }
+
+    }
+}
+
+.ui-widget-overlay {
+    opacity: 0.5;
+}

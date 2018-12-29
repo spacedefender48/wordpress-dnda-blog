@@ -1,0 +1,135 @@
+.contact-me--title {
+    text-align: center;
+    color: #fff;
+    font-size: 26px;
+    line-height: 75px;
+    font-family: 'montserratbold';
+}
+
+.social-icons-wrap {
+    text-align: center;
+    margin-bottom: 206px;
+
+    .social-icons-wrap--icon-link {
+        display: inline-block;
+        width: 32px;
+        height: 32px;
+        border-radius: 32px;
+        line-height: 32px;
+        background: #fff;
+        color: #282828;
+        font-size: 16px;
+        margin-right: 10px;
+        @include transition(0.3s);
+
+        &:last-child {
+            margin-right: 0;
+        }
+
+        &:hover {
+            background: #282828;
+            color: #fff;
+        }
+    }
+}
+
+.contact-me--desc {
+    text-align: center;
+    color: #fff;
+    font-family: 'montserratregular';
+    font-size: 26px;
+
+    p {
+        margin-bottom: 10px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+#contact-me-content {
+    max-width: 750px;
+    margin: 0 auto;
+    padding: 134px 0 110px;
+
+    .contact-me--message {
+        color: #282828;
+        font-size: 16px;
+        font-family: 'montserratregular';
+        line-height: 25px;
+        margin-bottom: 30px;
+        font-weight: bold;
+        text-align: center;
+        padding: 0 15px;
+    }
+
+    #contact-me-form {
+        .input-text {
+            color: #7f7f7f;
+            font-size: 15px;
+            font-family: 'montserratregular';
+            border: 1px solid #999999;
+            outline: none;
+            height: 65px;
+            width: 100%;
+            line-height: 65px;
+            padding: 0 12px;
+            margin-bottom: 15px;
+
+            &:focus {
+                border-color: #000;
+            }
+        }
+
+        .input-area {
+            width: 100%;
+            height: 300px;
+            resize: none;
+            color: #7f7f7f;
+            font-size: 15px;
+            font-family: 'montserratregular';
+            border: 1px solid #999999;
+            outline: none;
+            padding: 30px 12px 10px;
+            margin-bottom: 30px;
+
+            &:focus {
+                border-color: #000;
+            }
+        }
+
+        .submit-wrap {
+            position: relative;
+
+            .submit-btn {
+                width: 100%;
+                height: 75px;
+                background: #282828;
+                color: #fff;
+                font-family: 'montserratregular';
+                font-size: 21px;
+                text-align: center;
+                text-transform: uppercase;
+                border: 1px solid #000;
+                cursor: pointer;
+                outline: none;
+    
+                &.loading {
+                    background: #fff;
+                }
+            }
+        }
+        
+
+        .name-error-text,
+        .email-error-text {
+            color: #f00;
+            font-family: 'montserratregular';
+            font-size: 15px;
+            margin-bottom: 15px;
+            display: none;
+        }
+    }
+
+}
